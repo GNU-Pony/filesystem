@@ -1,0 +1,59 @@
+Filesystem hierarchy implementation for GNU/Pony
+
+
+Installing:
+
+make DESTDIR=<root> BOOT=normal install
+-- Install filesystem hierarchy to / under <root> with /boot
+
+make DESTDIR=<root> BOOT=flat install
+-- Install filesystem hierarchy to / under <root> with /boot symlinked to /
+
+make DESTDIR=<root> BOOT=none install
+-- Install filesystem hierarchy to / under <root> without /boot
+
+make DESTDIR=<root> install-extension
+-- Install a migrater friendly filesystem hierarchy my symlinks and hide the normal one with /.hidden
+
+make DESTDIR=<root> install-initram
+-- Install a filesystem hierarchy best suitable for initramfs or initrd
+
+make DESTDIR=<root> install-private
+-- Install a smaller filesystem hierarchy to you home directory
+
+make DESTDIR=<root> install-skel
+-- Install a smaller filesystem hierarchy the user prototype
+
+
+Additional "yes"/"no" options for `install-extension`:
+  with_libraries64 = no
+    -e /lib64 -a ! "$(realpath /lib64)" = "$(realpath /lib)"
+
+  with_usr_games = no
+    -e /usr/games -a ! "$(realpath /usr/games)" = "$(realpath /usr/bin)"
+
+  with_local_games = no
+    -e /usr/local/games -a ! "$(realpath /usr/local/games)" = "$(realpath /usr/local/bin)"
+
+  with_multilib = yes
+    -e /usr/libmulti
+
+  with_extended = yes
+    -e /info -a -e /share
+
+
+Group options:
+  utmp = 20
+    The ID of the group `utmp`, if installing to the running system it is best to just use: utmp
+
+  ftp = 11
+    The ID of the group `ftp`, if installing to the running system it is best to just use: ftp
+
+  games = 50
+    The ID of the group `games`, if installing to the running system it is best to just use: games
+
+
+Set the environment variable ARCH to reflect your machine architecture (uname -m).
+Set the environment variable HOME to point to your home directory, if not already
+set, when using `install-private`.
+
