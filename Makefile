@@ -243,7 +243,7 @@ install-private:
 	install -d -m755 "$(DESTDIR)$$HOME"/.spool
 	install -d -m755 "$(DESTDIR)$$HOME"/.local/opt
 	ln -s ../.config "$(DESTDIR)$$HOME"/.local/etc
-	ln -s ../.config "$(DESTDIR)$$HOME"/.local/dict
+	install -d -m755 "$(DESTDIR)$$HOME"/.local/dict
 	install -d -m755 "$(DESTDIR)$$HOME"/.local{,/local}/bin
 	install -d -m755 "$(DESTDIR)$$HOME"/.local{,/local}/sbin
 	install -d -m755 "$(DESTDIR)$$HOME"/.local{,/local}/lib
@@ -271,7 +271,7 @@ install-skel:
 	install -d -m755 "$(DESTDIR)"/etc/skel/.spool
 	install -d -m755 "$(DESTDIR)"/etc/skel/.local/opt
 	ln -s ../.config "$(DESTDIR)"/etc/skel/.local/etc
-	ln -s ../.config "$(DESTDIR)"/.local/dict
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local/dict
 	install -d -m755 "$(DESTDIR)"/etc/skel/.local{,/local}/bin
 	install -d -m755 "$(DESTDIR)"/etc/skel/.local{,/local}/sbin
 	install -d -m755 "$(DESTDIR)"/etc/skel/.local{,/local}/lib
