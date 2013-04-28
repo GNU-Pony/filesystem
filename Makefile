@@ -217,24 +217,77 @@ install-extension:
 
 
 install-initram:
-	mkdir -p fs/new_root
-	mkdir -p fs/sbin
-	mkdir -p fs/lib
-	mkdir -p fs/hooks
-	mkdir -p fs/etc
-	mkdir -p fs/proc
-	mkdir -p fs/dev
-	mkdir -p fs/sys
-	mkdir -p fs/run
-	mkdir -p fs/tmp
-	mkdir -p fs/usr/sbin
-	mkdir -p fs/usr/lib
-	ln -s sbin fs/bin
-	ln -s sbin fs/usr/bin
-	ln -s lib fs/usr/libexec
-	ln -s lib fs/libexec
-	ln -s lib fs/usr/lib64
-	ln -s lib fs/lib64
-	touch fs/etc/fstab
-	ln -s /proc/self/mount fs/etc/mtab
+	mkdir -p "$(DESTDIR)"/new_root
+	mkdir -p "$(DESTDIR)"/sbin
+	mkdir -p "$(DESTDIR)"/lib
+	mkdir -p "$(DESTDIR)"/hooks
+	mkdir -p "$(DESTDIR)"/etc
+	mkdir -p "$(DESTDIR)"/proc
+	mkdir -p "$(DESTDIR)"/dev
+	mkdir -p "$(DESTDIR)"/sys
+	mkdir -p "$(DESTDIR)"/run
+	mkdir -p "$(DESTDIR)"/tmp
+	ln -s sbin "$(DESTDIR)"/bin
+	ln -s lib "$(DESTDIR)"/libexec
+	ln -s lib "$(DESTDIR)"/lib64
+	ln -s . "$(DESTDIR)"/usr
+	ln -s . "$(DESTDIR)"/local
+	touch "$(DESTDIR)"/etc/fstab
+	ln -s /proc/self/mount "$(DESTDIR)"/etc/mtab
+
+
+install-private:
+	install -d -m755 "$(DESTDIR)$$HOME"/.local
+	install -d -m755 "$(DESTDIR)$$HOME"/.config
+	install -d -m755 "$(DESTDIR)$$HOME"/.cache
+	install -d -m755 "$(DESTDIR)$$HOME"/.spool
+	install -d -m755 "$(DESTDIR)$$HOME"/.local/opt
+	ln -s ../.config "$(DESTDIR)$$HOME"/.local/etc
+	ln -s ../.config "$(DESTDIR)$$HOME"/.local/dict
+	install -d -m755 "$(DESTDIR)$$HOME"/.local{,/local}/bin
+	install -d -m755 "$(DESTDIR)$$HOME"/.local{,/local}/sbin
+	install -d -m755 "$(DESTDIR)$$HOME"/.local{,/local}/lib
+	install -d -m755 "$(DESTDIR)$$HOME"/.local{,/local}/libexec
+	[ ! "$$ARCH" = "x86_64" ] || install -d -m755 "$(DESTDIR)$$HOME"/.local{,/local}/libmulti
+	[ ! "$$ARCH" = "x86_64" ] || ln -s lib "$(DESTDIR)$$HOME"/.local/lib64
+	[ ! "$$ARCH" = "x86_64" ] || ln -s lib "$(DESTDIR)$$HOME"/.local/local/lib64
+	install -d -m755 "$(DESTDIR)$$HOME"/.local{,/local}/include
+	install -d -m755 "$(DESTDIR)$$HOME"/.local{,/local}/share
+	install -d -m755 "$(DESTDIR)$$HOME"/.local/.local{,/local}/share/changelog
+	install -d -m755 "$(DESTDIR)$$HOME"/.local/.local{,/local}/share/info
+	install -d -m755 "$(DESTDIR)$$HOME"/.local/.local{,/local}/share/licenses
+	install -d -m755 "$(DESTDIR)$$HOME"/.local/.local{,/local}/share/man
+	install -d -m755 "$(DESTDIR)$$HOME"/.local/.local{,/local}/share/man/man{1..8}
+	ln -s ../doc "$(DESTDIR)$$HOME"/etc/skel/.local/share/doc
+	ln -s ../doc "$(DESTDIR)$$HOME"/etc/skel/.local/local/share/doc
+	install -d -m755 "$(DESTDIR)$$HOME"/.local{,/local}/src
+	install -d -m755 "$(DESTDIR)$$HOME"/.local{,/local}/doc
+
+
+install-skel:
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local
+	install -d -m755 "$(DESTDIR)"/etc/skel/.config
+	install -d -m755 "$(DESTDIR)"/etc/skel/.cache
+	install -d -m755 "$(DESTDIR)"/etc/skel/.spool
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local/opt
+	ln -s ../.config "$(DESTDIR)"/etc/skel/.local/etc
+	ln -s ../.config "$(DESTDIR)"/.local/dict
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local{,/local}/bin
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local{,/local}/sbin
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local{,/local}/lib
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local{,/local}/libexec
+	[ ! "$$ARCH" = "x86_64" ] || install -d -m755 "$(DESTDIR)"/etc/skel/.local{,/local}/libmulti
+	[ ! "$$ARCH" = "x86_64" ] || ln -s lib "$(DESTDIR)"/etc/skel/.local/lib64
+	[ ! "$$ARCH" = "x86_64" ] || ln -s lib "$(DESTDIR)"/etc/skel/.local/local/lib64
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local{,/local}/include
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local{,/local}/share
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local{,/local}/share/changelog
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local{,/local}/share/info
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local{,/local}/share/licenses
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local{,/local}/share/man
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local{,/local}/share/man/man{1..8}
+	ln -s ../doc "$(DESTDIR)"/etc/skel/.local/share/doc
+	ln -s ../doc "$(DESTDIR)"/etc/skel/.local/local/share/doc
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local{,/local}/src
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local{,/local}/doc
 
