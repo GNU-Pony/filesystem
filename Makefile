@@ -34,6 +34,7 @@ install-base:
 	    ln -s . "$(DESTDIR)"/boot;              \
 	fi
 	install -d -m755 "$(DESTDIR)"/dev
+	install -d -m755 "$(DESTDIR)"/dev/pts
 	install -d -m755 "$(DESTDIR)"/dev/shm
 	install -d -m755 "$(DESTDIR)"/etc
 	install -d -m755 "$(DESTDIR)"/etc/opt
