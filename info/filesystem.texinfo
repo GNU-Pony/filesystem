@@ -49,6 +49,9 @@ Texts. A copy of the license is included in the section entitled
 * Interface hierarchy::             The advanced programming interface part of the hierarchy.
 * Settings hierarchy::              The settings part of the hierarchy.
 * Variable data hierarchy::         The variable data part of the hierarchy.
+* Primary hierarchy::               The primary application hierarchy part of the hierarchy.
+@c* Secondary hierarchy::             The secondary application hierarchy part of the hierarchy.
+@c* Tertiary hierarchy::              The tertiary application hierarchy part of the hierarchy.
 * GNU Free Documentation License::  Copying and sharing this manual.
 @end menu
 
@@ -464,6 +467,67 @@ can @command{chroot} instances into to hide the file system.
 
 @file{/run/lock} is just like @file{/var/lock}, except the lock files
 will be cleared at reboot.
+
+
+
+@node Primary hierarchy
+@chapter Primary hierarchy
+
+@menu
+* /bin::                            Essential command.
+* /sbin::                           Essential system binaries.
+* /lib::                            Essential shared libraries and kernel modules.
+* /opt::                            Self-contained and add-on packages.
+@end menu
+
+
+
+@node /bin
+@section @file{/bin}
+
+@file{/bin} is the directory for commands needed for system maintenance.
+This does include command you will use regulary everyday, but not all of
+them, just the ones you would also need for normal system maintenance
+and rescue.
+
+
+
+@node /sbin
+@section @file{/sbin}
+
+@file{/sbin} is the directory for essential binaries used system modifications
+and interaction. While @file{bin} directories contains normal everyday commands,
+@file{sbin} directories contains commands normally used by the system initialisation,
+but primarly system daemons, commands for hardware and system setup, and similar
+commands, take a peek in for a better understanding.
+
+
+
+@node /lib
+@section @file{/lib}
+
+@file{/lib} is the directory for libraries used by commands in @file{/bin} and
+@file{/sbin}, but is also contains executable non-commands used by those commands,
+that is, commands that are intended for use by other commands and not directly by
+a user. Furthermore, it contains kernel modules, which could be argued to be
+located in @file{/opt}, so do not be surpriced if you find them there one day,
+but fore the time being, they are considered libraries rather than add-ons.
+
+On x86_64 systems you will find @file{/lib64} which pointes to @file{/lib}.
+As @file{/lib} is architecture dependent it makes no sinces to create a seperate
+directory for that architecture, therefore @file{/lib64} is created to link
+to @file{/lib} so programs do not install them to any other directory then @file{/lib}.
+
+
+
+@node /opt
+@section @file{/opt}
+
+@file{/opt} (from `optional') is a directory of large self-contained packages, that
+contains their own library copies; problematic packages, that do not comform to a
+standard filesystem hierarchy or need their of library copies for compatiblity reasons;
+application add-ons; and compat versions of packages, that is, another version
+(version number) of a that is installed side by side with the mane verison.
 
 
 
