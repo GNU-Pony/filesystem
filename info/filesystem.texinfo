@@ -45,6 +45,7 @@ Texts. A copy of the license is included in the section entitled
 
 @menu
 * Overview::                        Brief overview of @command{filesystem}.
+* Foundamental hierarchy::          The foundamental part of the hierarchy.
 * GNU Free Documentation License::  Copying and sharing this manual.
 @end menu
 
@@ -63,6 +64,138 @@ other packages can be agnostic and not implement this themself.
 
 The filesystem hierarchy is based on the Filesystem Hierarchy Standard developed
 by the Linux Foundation.
+
+
+
+@node Foundamental hierarchy
+@chapter Foundamental hierarchy
+
+@menu
+* /::                               The root if it all.
+* lost+found::                      The orphanage.
+* /mnt::                            Temporarily mounted filesystem.
+* /media::                          Removable media.
+* /root::                           Administrator directory.
+* /home::                           User directories.
+* /info::                           Administrated shared files.
+* /share::                          User shared data.
+@end menu
+
+
+
+@node /
+@chapter @file{/}
+
+@file{/} is top-most directory, there is a parition mounted on it, and it
+is a very you ultimately find everything, even other paritions.
+
+@file{/} is called ``root'', which may cause confusion is try to call it
+@file{/} when possible or even ``slash'' if things get really confusing.
+
+
+
+@node lost+found
+@chapter @file{lost+found}
+
+@file{lost+found} (`''lost and found'') is a directory create by most
+filesystems, and you may find one at any mount point@footnote{A directory
+onto which a file system is mounted}, including @file{/lost+found},
+@file{/mnt/lost+found} and @file{/media/*/lost+found}.
+
+When a filesystem finds an orphaned inode, that is, a file without any
+known file names, it may put it in its @file{lost+found}
+
+If you do not which to this file in your removable devices, you can
+normally, depending on your file manager, add a file named @file{.hidden}
+(the perfix dot means that it will be hidden) containing a line
+with the text @code{lost+found}, in the device's mount point.
+
+
+
+@node /mnt
+@chapter @file{/mnt}
+
+@file{/mnt} (``mount'') is a directory that is just there for your convience,
+it is intended to be used as a mount point for a file system, normally
+a removable device, that you are working with temporarly, and is not intended
+to be mounted long term.
+
+
+
+@node /media
+@chapter @file{/media}
+
+@file{/media} (``media'') as a superdirectory of long term mount points,
+more specifically, it is intended to only contain directories that are
+used as mount points for long term mounted filesystems that is not
+incorporated into the remaining part of the filesystem hierarchy.
+
+For example, if you have an external drive named ``oggcasts'', you
+can create the directory @file{/media/oggcasts}, onto which you mount
+the partion you have on the ``oggcast'' drive.
+
+It is also intended for use of optical storage, floppy drives, zip
+drived and alike, if you are still using any of those.
+
+
+
+@node /root
+@chapter @file{/root}
+
+@file{/root} (``root'' or ``slash root'') is the home directory for the
+system administrator, the user @code{root}. Normally there is no much
+point to have a home directory for the system administrator as that is
+not any user intended for use beyond administrations. However, it will
+contian application configurations if the user chooses to have any, and
+can also be used to store files needed for administration, that you
+do not want to be clutter up your non-root user home directory.
+
+Theoretically it is possile to symlink @file{/root} to your user home
+directory so you do not need to separately configure the root user.
+This paractice is however unrecommended, as messing up your user could
+potentially mess up the root user as well; rather, you should keep
+your root configurations as safe and minimalisic as possible.
+
+
+
+@node /home
+@chapter @file{/home}
+
+@file{/home} (``home'' or ``slash home'') is the default superdirectory
+for non-root user home directories. When you create a new user, if not
+otherwise specified, the new user, named @code{zyzzx}, will be created
+a the directory @file{/home/zyzzx} which will be set to @code{zyzzx}'s
+home directory and only @code{zyzzx} and root will have access to it.
+
+
+
+@node /info
+@chapter @file{/info}
+
+@file{/info} (``info'' or ``information'') is a GNU/Pony extension to
+the filesystem hierarchy inspired by the filesystem hierarchy found at
+the Royal Insitute of Technology.
+
+By default only root have write access to @file{/info}, but you may want
+to change the group to @code{faculty} (or similarily) and give write
+access to the group.
+
+@file{/info} is intended for privileged users to publish files, and is
+thus fairly unneccessary for single user computers unless you give your
+friends SFTP access.
+
+
+
+@node /share
+@chapter @file{/share}
+
+@file{/share} (``sharing is magic'')@footnote{Or ``slash share'' or just
+``share''} is a GNU/Pony extension to the filesystem hierarchy. It is intended
+for user shared files. While users are recommended to create a directory
+@file{~/Public} and give everypony read access to it, and store personal
+non-private files in it for other ponies to read or canabalise, @file{/share}
+is intended for all users to use together for non-personal data, for example,
+you can put your radio shows, music, books or whatever, there.
 
 
 
