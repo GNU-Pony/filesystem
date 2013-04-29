@@ -10,6 +10,19 @@ ftp = 11
 games = 50
 
 
+
+all:
+
+doc: info
+
+info: filesystem.info.gz
+
+%.info.gz: info/%.texinfo.install
+	makeinfo "$<"
+	gzip -9 -f "$*.info"
+
+
+
 install: install-base install-usr install-local install-var install-logs install-extended
 	[ ! "$$ARCH" = "x86_64" ] || make "DESTDIR=$(DESTDIR)" install-64
 
