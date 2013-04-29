@@ -5,6 +5,13 @@ BOOT = normal
 # BOOT=flat : / is /boot
 # BOOT=none : no /boot
 
+with_libraries64 = no
+with_usr_games = no
+with_local_games = no
+with_multilib = yes
+with_extended = yes
+
+
 utmp = 20
 ftp = 11
 games = 50
@@ -135,14 +142,23 @@ install-extended:
 	install -d -m1755 "$(DESTDIR)"/share
 
 
-with_libraries64 = no
-with_usr_games = no
-with_local_games = no
-with_multilib = yes
-with_extended = yes
+install-hide:
+	install -m644 extension-hide "$(DESTDIR)"/.hidden
+
+
+install-slim-extension:
+	ln -s ./usr/share/applications "$(DESTDIR)"/Applications
+	ln -s ./home "$(DESTDIR)"/Users
+	ln -s ./media "$(DESTDIR)"/Volumes
+	install -d -m755 "$(DESTDIR)"/Temporary
+	ln -s ../var/tmp "$(DESTDIR)"/Temporary/Persistent
+	ln -s ../tmp "$(DESTDIR)"/Temporary/Transient
+	ln -s ../var/cache "$(DESTDIR)"/Temporary/Cache
+	[ ! $(with_extended) == yes ] || \
+	    ln -s ./share "$(DESTDIR)"/Shared\ File
+
 
 install-extension:
-	install -m644 extension-hide "$(DESTDIR)"/.hidden
 	install -d -m755 "$(DESTDIR)"/localhost
 	install -d -m755 "$(DESTDIR)"/localhost/system
 	install -d -m755 "$(DESTDIR)"/localhost/system/essentials
@@ -225,8 +241,10 @@ install-extension:
 	install -d -m755 "$(DESTDIR)"/localhost/users
 	ln -s ../../home "$(DESTDIR)"/localhost/users/private
 	install -d -m755 "$(DESTDIR)"/localhost/users/public
-	ln -s ../../../share "$(DESTDIR)"/localhost/users/public/shared
-	ln -s ../../../info "$(DESTDIR)"/localhost/users/public/administrated
+	[ ! $(with_extended) == yes ] || \
+	    ln -s ../../../share "$(DESTDIR)"/localhost/users/public/shared
+	[ ! $(with_extended) == yes ] || \
+	    ln -s ../../../info "$(DESTDIR)"/localhost/users/public/administrated
 	ln -s ../../../media "$(DESTDIR)"/localhost/users/public/mounted
 
 

@@ -13,7 +13,13 @@ make DESTDIR=<root> BOOT=none install
 -- Install filesystem hierarchy to / under <root> without /boot
 
 make DESTDIR=<root> install-extension
--- Install a migrater friendly filesystem hierarchy my symlinks and hide the normal one with /.hidden
+-- Install a migrater friendly filesystem hierarchy by symlinks
+
+make DESTDIR=<root> install-slim-extension
+-- Install a migrater friendly filesystem hierarchy by symlinks with only a minimal set of directories
+
+make DESTDIR=<root> install-hide
+-- Hide the normal filesystem hierarchy with /.hidden
 
 make DESTDIR=<root> install-initram
 -- Install a filesystem hierarchy best suitable for initramfs or initrd
@@ -40,6 +46,11 @@ Additional "yes"/"no" options for `install-extension`:
 
   with_extended = yes
     -e /info -a -e /share
+
+
+Additional "yes"/"no" options for `install-slim-extension`:
+  with_extended = yes
+    -e /share
 
 
 Group options:
