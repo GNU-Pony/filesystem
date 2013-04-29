@@ -48,6 +48,7 @@ Texts. A copy of the license is included in the section entitled
 * Foundamental hierarchy::          The foundamental part of the hierarchy.
 * Interface hierarchy::             The advanced programming interface part of the hierarchy.
 * Settings hierarchy::              The settings part of the hierarchy.
+* Variable data hierarchy::         The variable data part of the hierarchy.
 * GNU Free Documentation License::  Copying and sharing this manual.
 @end menu
 
@@ -306,6 +307,164 @@ for programs installed to @file{/opt}.
 
 @file{/etc/skel} is the user home directory skeletion (prototype), that
 is copyed to new users when they are created.
+
+
+
+@node Variable data hierarchy
+@chapter Variable data hierarchy
+
+@menu
+* /srv::                            Service data.
+* /srv/db::                         Database data.
+* /srv/ftp::                        FTP files.
+* /srv/http::                       WWW files.
+* /tmp::                            Transient temporary files.
+* /var::                            Variable data.
+* /var/tmp::                        Persistent temporary files.
+* /var/cache::                      Cached files.
+* /var/spool::                      Spooled files.
+* /var/opt::                        Variable data for @file{/opt}.
+* /var/log::                        System log files.
+* /var/mail::                       User e-mail.
+* /var/games::                      Variable game data.
+* /var/lock::                       Unsharable lock data.
+* /var/lib::                        State information.
+* /var/local::                      Variable data for @file{/usr/local}.
+* /var/empty::                      Empty directory.
+* /run/lock::                       Transient unsharable lock data.
+@end menu
+
+
+@node /srv
+@section @file{/srv}
+
+@file{/srv} is a superdirectory for data provided by services hosted
+on the machine.
+
+
+@node /srv/db
+@section @file{/srv/db}
+
+@file{/srv/db} is a directory for data provided by databases hosted
+on the machine. @file{/srv/db} should not directly contain database
+data, but rather a directory named as the service, that in turn contians
+the database files.
+
+
+@node /srv/ftp
+@section @file{/srv/ftp}
+
+@file{/srv/db} is the directory for files provided by a FTP server
+on the machine.
+
+
+@node /srv/http
+@section @file{/srv/http
+
+@file{/srv/http} is the directory for files provided by a HTTP server
+on the machine.
+
+
+@node /tmp
+@section @file{/tmp}
+
+@file{/tmp} is the directory for temporary files stored primarly in
+the random access memory, but could potentially also be stored on
+a swap partition.
+
+
+@node /var
+@section @file{/var}
+
+@file{/var} is root directory for variable data outside @file{/srv}
+and @file{/tmp}.
+
+
+@node /var/tmp
+@section @file{/var/tmp}
+
+@file{/var/tmp} is the directory for temporary files stored on the
+drive and will be preserved between system boots.
+
+
+@node /var/cache
+@section @file{/var/cache}
+
+@file{/var/cached} is the directory cached files, that is temporary
+files used by a program, but can be removed at any time.
+
+
+@node /var/spool
+@section @file{/var/spool}
+
+@file{/var/cached} is the directory spool files, that is temporary files
+used by a program, but cannot safely be removed and will be removed by
+the program when it is no longer needed.
+
+
+@node /var/opt
+@section @file{/var/opt}
+
+@file{/var/opt} is the directory file variable data for programs located
+in @file{/opt} and should be arranged in the same when. The program
+may arrange the data in its directory as it wish, but is recommended to
+arrange it in the same way as @file{/var} is arranged.
+
+
+@node /var/log
+@section @file{/var/log}
+
+@file{/var/log} is the directory of system logs.
+
+
+@node /var/mail
+@section @file{/var/mail}
+
+@file{/var/mail} is the directory of user e-mail fetched by a e-mail
+service.
+
+
+@node /var/games
+@section @file{/var/games}
+
+@file{/var/games} is the directory of variable game data, such as
+high scores.
+
+
+@node /var/lock
+@section @file{/var/lock}
+
+@file{/var/lock} is the directory of file locks, if you want the
+locks be cleared at reboot it fits better in @file{/run/lock}.
+
+
+@node /var/lib
+@section @file{/var/lib}
+
+@file{/var/lib} is the directory of program and system state data.
+
+
+@node /var/local
+@section @file{/var/local}
+
+@file{/var/local} is the @file{/var} directory of programs located
+in @file{/usr/local}, contains the analogous directories @file{cache},
+@file{spool}, @file{games}, @file{lock} and @file{lib}.
+
+
+@node /var/empty
+@section @file{/var/empty}
+
+@file{/var/empty} is a directory that should be empty, that services
+can @command{chroot} instances into to hide the file system.
+
+
+@node /run/lock
+@section @file{/run/lock}
+
+@file{/run/lock} is just like @file{/var/lock}, except the lock files
+will be cleared at reboot.
+
 
 
 
