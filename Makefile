@@ -304,3 +304,7 @@ install-skel:
 	install -d -m755 "$(DESTDIR)"/etc/skel/.local{,/local}/src
 	install -d -m755 "$(DESTDIR)"/etc/skel/.local{,/local}/doc
 
+
+clean:
+	-rm -f {*,*/*}.{aux,cp,fn,info,ky,log,pdf,ps,dvi,pg,toc,tp,vr}
+
