@@ -359,7 +359,7 @@ on the machine.
 
 
 @node /srv/http
-@section @file{/srv/http
+@section @file{/srv/http}
 
 @file{/srv/http} is the directory for files provided by a HTTP server
 on the machine.
