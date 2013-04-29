@@ -84,7 +84,7 @@ by the Linux Foundation.
 
 
 @node /
-@chapter @file{/}
+@section @file{/}
 
 @file{/} is top-most directory, there is a parition mounted on it, and it
 is a very you ultimately find everything, even other paritions.
@@ -95,7 +95,7 @@ is a very you ultimately find everything, even other paritions.
 
 
 @node lost+found
-@chapter @file{lost+found}
+@section @file{lost+found}
 
 @file{lost+found} (`''lost and found'') is a directory create by most
 filesystems, and you may find one at any mount point@footnote{A directory
@@ -113,7 +113,7 @@ with the text @code{lost+found}, in the device's mount point.
 
 
 @node /mnt
-@chapter @file{/mnt}
+@section @file{/mnt}
 
 @file{/mnt} (``mount'') is a directory that is just there for your convience,
 it is intended to be used as a mount point for a file system, normally
@@ -123,7 +123,7 @@ to be mounted long term.
 
 
 @node /media
-@chapter @file{/media}
+@section @file{/media}
 
 @file{/media} (``media'') as a superdirectory of long term mount points,
 more specifically, it is intended to only contain directories that are
@@ -140,7 +140,7 @@ drived and alike, if you are still using any of those.
 
 
 @node /root
-@chapter @file{/root}
+@section @file{/root}
 
 @file{/root} (``root'' or ``slash root'') is the home directory for the
 system administrator, the user @code{root}. Normally there is no much
@@ -159,7 +159,7 @@ your root configurations as safe and minimalisic as possible.
 
 
 @node /home
-@chapter @file{/home}
+@section @file{/home}
 
 @file{/home} (``home'' or ``slash home'') is the default superdirectory
 for non-root user home directories. When you create a new user, if not
@@ -170,7 +170,7 @@ home directory and only @code{zyzzx} and root will have access to it.
 
 
 @node /info
-@chapter @file{/info}
+@section @file{/info}
 
 @file{/info} (``info'' or ``information'') is a GNU/Pony extension to
 the filesystem hierarchy inspired by the filesystem hierarchy found at
@@ -187,7 +187,7 @@ friends SFTP access.
 
 
 @node /share
-@chapter @file{/share}
+@section @file{/share}
 
 @file{/share} (``sharing is magic'')@footnote{Or ``slash share'' or just
 ``share''} is a GNU/Pony extension to the filesystem hierarchy. It is intended
