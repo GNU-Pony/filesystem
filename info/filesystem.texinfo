@@ -46,6 +46,7 @@ Texts. A copy of the license is included in the section entitled
 @menu
 * Overview::                        Brief overview of @command{filesystem}.
 * Foundamental hierarchy::          The foundamental part of the hierarchy.
+* Interface hierarchy::             The advanced programming interface part of the hierarchy.
 * GNU Free Documentation License::  Copying and sharing this manual.
 @end menu
 
@@ -196,6 +197,71 @@ for user shared files. While users are recommended to create a directory
 non-private files in it for other ponies to read or canabalise, @file{/share}
 is intended for all users to use together for non-personal data, for example,
 you can put your radio shows, music, books or whatever, there.
+
+
+
+@node Interface hierarchy
+@chapter Interface hierarchy
+
+
+@menu
+* /dev::                            Devices and pseudodevices.
+* /dev/pts::                        Pseudoterminals.
+* /dev/shm::                        Shared memoery.
+* /proc::                           Process information.
+* /run::                            Run-time variable data.
+* /sys::                            System access.
+@end menu
+
+
+@node /dev
+@section @file{/dev}
+
+@file{/dev} is a mount point for the kernel advanced programming interface
+filesystem for devices and pseudodevices.
+
+
+@node /dev/pts
+@section @file{/dev/pts}
+
+@file{/dev/pts} is a mount point for the kernel advanced programming
+interface filesystem for pseudoterminals.
+
+
+@node /dev/shm
+@section @file{/dev/shm}
+
+@file{/dev/shm} is a mount point for the kernel advanced programming
+interface filesystem for shared memory, but can also be used as a
+directory for temporary files that will always be in random access memory.
+
+
+@node /proc
+@section @file{/proc}
+
+@file{/proc} is a mount point for the kernel advanced programming interface
+filesystem for information about processes. It does contain some miscellany,
+but it also cotains one directory for each process named as the process ID
+as well as one special symlink, named @file{/proc/self} pointing to the
+directory for the current process.
+
+
+@node /run
+@section @file{/run}
+
+@file{/run} is a mount point for the advanced programming interface
+filesystem for run-time variable data. It contains system information
+describing the system since it was booted. Programs may have subdirectories;
+process identifiers and UNIX-domain sockets used by programs should be
+placed in this file system.
+
+
+@node /sys
+@section @file{/sys}
+
+@file{/sys} is a mount point for the kernel advanced programming interface
+filesystem for kernel and hardware access and modification.
+
 
 
 
