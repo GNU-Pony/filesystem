@@ -47,6 +47,7 @@ Texts. A copy of the license is included in the section entitled
 * Overview::                        Brief overview of @command{filesystem}.
 * Foundamental hierarchy::          The foundamental part of the hierarchy.
 * Interface hierarchy::             The advanced programming interface part of the hierarchy.
+* Settings hierarchy::              The settings part of the hierarchy.
 * GNU Free Documentation License::  Copying and sharing this manual.
 @end menu
 
@@ -126,7 +127,7 @@ to be mounted long term.
 @node /media
 @section @file{/media}
 
-@file{/media} (``media'') as a superdirectory of long term mount points,
+@file{/media} as a superdirectory of long term mount points,
 more specifically, it is intended to only contain directories that are
 used as mount points for long term mounted filesystems that is not
 incorporated into the remaining part of the filesystem hierarchy.
@@ -203,11 +204,10 @@ you can put your radio shows, music, books or whatever, there.
 @node Interface hierarchy
 @chapter Interface hierarchy
 
-
 @menu
 * /dev::                            Devices and pseudodevices.
 * /dev/pts::                        Pseudoterminals.
-* /dev/shm::                        Shared memoery.
+* /dev/shm::                        Shared memory.
 * /proc::                           Process information.
 * /run::                            Run-time variable data.
 * /sys::                            System access.
@@ -262,6 +262,50 @@ placed in this file system.
 @file{/sys} is a mount point for the kernel advanced programming interface
 filesystem for kernel and hardware access and modification.
 
+
+
+@node Settings hierarchy
+@chapter Settings hierarchy
+
+@menu
+* /boot::                           The boot partition.
+* /etc::                            Host-specific settings.
+* /etc/opt::                        Host-specific settings for @file{/opt}.
+* /etc/skel::                       User skeleton.
+@end menu
+
+
+@node /boot
+@section @file{/boot}
+
+@file{/boot} is the mount point for the partition that the bootmanager starts
+and contains the bootloader that boots an operativing system.
+
+@file{/boot} contains all bootable kernels and initramfs:es that are not
+booted by a chainloaded bootloaders; it also contains settings for your
+bootloader and tools your can run, instead of your operativing system,
+for diagnositics.
+
+
+@node /etc
+@section @file{/etc}
+
+@file{/etc} (pronounced however you wish) the directory for system-wide
+host-specific configurations.
+
+
+@node /etc/opt
+@section @file{/etc/opt}
+
+@file{/etc/opt} the directory for system-wide host-specific configurations
+for programs installed to @file{/opt}.
+
+
+@node /etc/skel
+@section @file{/etc/skel}
+
+@file{/etc/skel} is the user home directory skeletion (prototype), that
+is copyed to new users when they are created.
 
 
 
