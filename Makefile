@@ -24,7 +24,7 @@ doc: info
 
 info: filesystem.info.gz
 
-%.info.gz: info/%.texinfo.install
+%.info.gz: info/%.texinfo
 	makeinfo "$<"
 	gzip -9 -f "$*.info"
 
