@@ -36,10 +36,10 @@ Additional "yes"/"no" options for `install-extension`:
     -e /lib64 -a ! "$(realpath /lib64)" = "$(realpath /lib)"
 
   with_usr_games = no
-    -e /usr/games -a ! "$(realpath /usr/games)" = "$(realpath /usr/bin)"
+    -e /usr/games -a ! "$(realpath /usr/games)" = "$(realpath /usr)"
 
   with_local_games = no
-    -e /usr/local/games -a ! "$(realpath /usr/local/games)" = "$(realpath /usr/local/bin)"
+    -e /usr/local/games -a ! "$(realpath /usr/local/games)" = "$(realpath /usr/local)"
 
   with_multilib = yes
     -e /usr/libmulti
