@@ -51,7 +51,7 @@ Texts. A copy of the license is included in the section entitled
 * Variable data hierarchy::         The variable data part of the hierarchy.
 * Primary hierarchy::               The primary application hierarchy part of the hierarchy.
 * Secondary hierarchy::             The secondary application hierarchy part of the hierarchy.
-@c* Tertiary hierarchy::              The tertiary application hierarchy part of the hierarchy.
+* Tertiary hierarchy::              The tertiary application hierarchy part of the hierarchy.
 * GNU Free Documentation License::  Copying and sharing this manual.
 @end menu
 
@@ -744,6 +744,22 @@ long.
 @file{/usr/share/dict} is a directory for word lists, these lists are simple text files
 with one word per line and are program independent.
 
+
+
+@node Tertiary hierarchy
+@chapter Tertiary hierarchy
+
+@file{/usr/local} is the tertiary hierarchy@footnote{Also called the local hierarchy.},
+and is identical to the secondary hierarchy@footnote{@file{/usr} is the secondary
+hierarchy.}, except @file{/usr/local/share/dict} is not pre-created, and should only
+include data for @file{/usr/local} programs, and not programs installed in @file{/},
+@file{/usr} or @file{/opt}.
+
+@file{/usr/local} is the hierarchy for host-specific data, which includes software
+installed from a non-standard repostory. System administrators can, here, install
+programs built specifically for company or institute, programs not found in a
+repository@footnote{Do request a pull for its inclusion.}, or system-wide shorthand
+command.
 
 
 
