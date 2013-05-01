@@ -294,6 +294,13 @@ install-private:
 	install -d -m755 "$(DESTDIR)$$HOME"/.local/share/man/man{1..8}
 	install -d -m755 "$(DESTDIR)$$HOME"/.local/share/doc
 	ln -s share/doc "$(DESTDIR)$$HOME"/.local/doc
+	install -d -m755 "$(DESTDIR)$$HOME"/.local/var
+	install -d -m755 "$(DESTDIR)$$HOME"/.local/var/games
+	install -d -m755 "$(DESTDIR)$$HOME"/.local/var/lib
+	install -d -m755 "$(DESTDIR)$$HOME"/.local/var/lock
+	install -d -m755 "$(DESTDIR)$$HOME"/.local/var/log
+	install -d -m755 "$(DESTDIR)$$HOME"/.local/var/spool
+	install -d -m755 "$(DESTDIR)$$HOME"/.local/var/cache
 
 
 install-skel:
@@ -321,6 +328,13 @@ install-skel:
 	install -d -m755 "$(DESTDIR)"/etc/skel/.local/share/man/man{1..8}
 	install -d -m755 "$(DESTDIR)"/etc/skel/.local/share/doc
 	ln -s share/doc "$(DESTDIR)"/etc/skel/.local/doc
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local/var
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local/var/games
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local/var/lib
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local/var/lock
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local/var/log
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local/var/spool
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local/var/cache
 
 
 clean:
