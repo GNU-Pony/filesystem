@@ -50,7 +50,7 @@ Texts. A copy of the license is included in the section entitled
 * Settings hierarchy::              The settings part of the hierarchy.
 * Variable data hierarchy::         The variable data part of the hierarchy.
 * Primary hierarchy::               The primary application hierarchy part of the hierarchy.
-@c* Secondary hierarchy::             The secondary application hierarchy part of the hierarchy.
+* Secondary hierarchy::             The secondary application hierarchy part of the hierarchy.
 @c* Tertiary hierarchy::              The tertiary application hierarchy part of the hierarchy.
 * GNU Free Documentation License::  Copying and sharing this manual.
 @end menu
@@ -513,10 +513,10 @@ a user. Furthermore, it contains kernel modules, which could be argued to be
 located in @file{/opt}, so do not be surpriced if you find them there one day,
 but fore the time being, they are considered libraries rather than add-ons.
 
-On x86_64 systems you will find @file{/lib64} which pointes to @file{/lib}.
+On x86_64 systems you will find @file{/lib64} which points to @file{/lib}.
 As @file{/lib} is architecture dependent it makes no sinces to create a seperate
 directory for that architecture, therefore @file{/lib64} is created to link
-to @file{/lib} so programs do not install them to any other directory then @file{/lib}.
+to @file{/lib} so programs do not install them to any other directory than @file{/lib}.
 
 
 
@@ -528,6 +528,221 @@ contains their own library copies; problematic packages, that do not comform to 
 standard filesystem hierarchy or need their of library copies for compatiblity reasons;
 application add-ons; and compat versions of packages, that is, another version
 (version number) of a that is installed side by side with the mane verison.
+
+
+
+@node Secondary hierarchy
+@chapter Secondary hierarchy
+
+@menu
+* /usr::                            Non-essential files.
+* /usr/bin::                        Non-essential command.
+* /usr/sbin::                       Non-essential system command.
+* /usr/games::                      The game file system hierarchy.
+* /usr/lib::                        Libraries for non-essential programs.
+* /usr/libexec::                    Executable libraries for non-essential programs.
+* /usr/include::                    Library headers for libraries for non-essential programs.
+* /usr/src::                        Program sources.
+* /usr/doc::                        Documentation in non-dedicated format.
+* /usr/share::                      Read-only architecture independent data files.
+* /usr/share/changelogs::           Change longs.
+* /usr/share/licenses::             Packages licenses.
+* /usr/share/misc::                 Miscellaneous read-only architecture independent data files.
+* /usr/share/info::                 @command{info} manuals.
+* /usr/share/man::                  @command{man} manuals.
+* /usr/share/dict::                 Program independent word lists.
+@end menu
+
+
+
+@node /usr
+@section @file{/usr}
+
+@file{/usr} (``user'') is the root for the secondary hierarchy in the filesystem
+hierarchy. Its purpose is contain programs that is normally not required for
+maintenance and system rescue.
+
+
+
+@node /usr/bin
+@section @file{/usr/bin}
+
+@file{/usr/bin} is the secondary hierarchy correspondence to the primary
+hierarchy's @file{/bin}.
+
+
+
+@node /usr/sbin
+@section @file{/usr/sbin}
+
+@file{/usr/sbin} is the secondary hierarchy correspondence to the primary
+hierarchy's @file{/sbin}.
+
+
+
+@node /usr/games
+@section @file{/usr/games}
+
+@file{/usr/games} is a historical directory whose purpose was to contain games
+as they normally are much larger, letting to store @file{/usr/games} on different
+hard drive then @file{/usr} itself, which is where it is pointing today.
+
+If you prefer, you can separate the correctly written game scrolls should be
+isntalled into @file{/usr/games} rather than @file{/usr}; the definition of
+``game'' may however not be to count on, it should be interactive games that you
+play, not just amusing small programs such as @command{ponysay} and @command{fortune}.
+
+To compile a program to be installed to @file{/usr/games} rather than @file{/usr},
+just change the ``prefix'' in scroll from @code{/usr} to @code{/usr/games}.
+
+
+
+@node /usr/libexec
+@section @file{/usr/libexec}
+
+@file{/usr/libexec} is the secondary hierarchy's directory for commands that
+are meant for other programs to execute, there is however nothing stopping
+you from running then directly yourself, that is just not designed for that.
+
+
+
+@node /usr/lib
+@section @file{/usr/lib}
+
+@file{/usr/lib} is the secondary hierarchy's directory for non-executable library
+files. Libraries include functions that are execute by programs and cannot be
+used a command, the reason for this is that libraries are more complex, and
+do not only contain functions and are not treated as separated programs.
+
+On x86_64 systems you will find @file{/usr/lib64} which points to @file{/usr/lib}.
+As @file{/usr/lib} is architecture dependent it makes no sinces to create a seperate
+directory for that architecture, therefore @file{/usr/lib64} is created to link to
+@file{/usr/lib} so programs do not install them to any other directory than
+@file{/usr/lib}.
+
+Additionally, on x86_64 systems you will also find @file{/usr/libmulti}, which
+on most systems are called @file{/usr/lib32}, but we wanted the name to more
+precisely reflect the fact that it is used for multilibs and is not of the
+systems actual architecture. @file{/usr/libmulti} is the home of secondary
+hierarchy libraries used by legacy 32-bit programs running under IA-32 emulation.
+32-bit programs are looked amongst 64-bits in @file{/usr/bin} and @file{/usr/sbin}.
+There are no essential programs that are not 64-bit compatible and therefore
+there is no @file{/libmulti}.
+
+To keep it single @file{/usr/lib} points to @file{/lib} and escapes the secondary
+hierarchy.
+
+
+
+@node /usr/include
+@section @file{/usr/include}
+
+While @file{/usr/lib} are binaries, @file{/usr/include} are source headers for
+libraries @file{/usr/lib}, they are used for programs that seek to use
+@file{/usr/lib} libraries and need to know the structure of those libraries at
+compile time by source and not by binary.
+
+
+
+@node /usr/src
+@section @file{/usr/src}
+
+@file{/usr/src} (``source'') is the directory for source files that may be needed
+by another program or scroll, or by the program itself. Sources for programs installed
+to @file{/} and @file{/usr} fits here, @file{/opt} programs should have their source
+in their directory inside @file{/opt}.
+
+On a typical system this directory will contain and only contain the kernel source.
+
+
+
+@node /usr/doc
+@section @file{/usr/doc}
+
+@file{/usr/doc} is the directory for non-standard documentation for program
+in @file{/usr}. Non-standard means that there is no dedicated documentation program
+such as @command{info} and @command{man} that is used to open the documentation,
+and rather, the user much on the documentention my hand in a general PDF viewer,
+text viewer or whatever is applicable.
+
+Packages with one documentation file my use a single file in @file{/usr/doc} named
+as the package optionally followed by a file extension, otherwise a directory named
+as the package must be used.
+
+Documentation for packages installed to both @file{/} and @file{/usr} should
+be installed here, packages in @file{/opt} should have here documention installed
+to there own directory inside @file{/opt}.
+
+
+
+@node /usr/share
+@section @file{/usr/share}
+
+The @file{/usr/share} hierarchy is for all read-only architecture independent data
+files, which means, no executable files or libraries unless they are executable
+libraries intended to be used by the program installed with them. Programs requiring
+data files should have a directory named as the program directly under @file{/usr/share}.
+
+Any program requiring architecture dependent (not independent) data is considered
+problematic and should be installed to @file{/opt}, if the architecture dependent
+is not covered for all architectures.
+
+Essential programs, that is, programs installed to @file{/}, should not have
+data files, but if required, it should be installed to @file{/lib} rather
+than @file{/usr/share} or @file{/share}.
+
+
+
+@node /usr/share/changelogs
+@section @file{/usr/share/changelogs}
+
+Programs may install there changelogs to @file{/usr/share/changelogs}.
+
+
+
+@node /usr/share/licenses
+@section @file{/usr/share/licenses}
+
+Programs should install there licenses other legal documents to @file{/usr/share/licenses}.
+The scrolls used to install them should however, when possible, reuse licenses found in
+@file{/usr/share/licenses/common} via symbolic links.
+
+
+
+@node /usr/share/misc
+@section @file{/usr/share/misc}
+
+@file{/usr/share/misc} contains miscellaneous architecture-independent files which do not
+require a separate subdirectory under @file{/usr/share}.
+
+
+
+@node /usr/share/info
+@section @file{/usr/share/info}
+
+@file{/usr/share/info} is the directory for @command{info} manuals for programs installed
+under @file{/}, @file{/usr} and @file{/opt}. These are more extensive, book-like (and actual
+books,) manuals which can be opened with the command @file{info}. It is common practice for
+GNU ponies to create extensive @command{info} manuals.
+
+
+
+@node /usr/share/man
+@section @file{/usr/share/man}
+
+@file{/usr/share/man} is the directory for @command{man} manuals for programs installed
+under @file{/}, @file{/usr} and @file{/opt}. These are (almost always) short, reference
+card-like, manuals which can be opened with the command @file{man}. It is common practice
+for Linux ponies to create show @command{man} manuals, sometimes however they are really
+long.
+
+
+
+@node /usr/share/dict
+@section @file{/usr/share/dict}
+
+@file{/usr/share/dict} is a directory for word lists, these lists are simple text files
+with one word per line and are program independent.
 
 
 
