@@ -52,6 +52,7 @@ Texts. A copy of the license is included in the section entitled
 * Primary hierarchy::               The primary application hierarchy part of the hierarchy.
 * Secondary hierarchy::             The secondary application hierarchy part of the hierarchy.
 * Tertiary hierarchy::              The tertiary application hierarchy part of the hierarchy.
+* User hierarchy::                  User private hierarchy.
 * GNU Free Documentation License::  Copying and sharing this manual.
 @end menu
 
@@ -761,6 +762,57 @@ programs built specifically for company or institute, programs not found in a
 repository@footnote{Do request a pull for its inclusion.}, or system-wide shorthand
 command.
 
+
+
+@node User hierarchy
+@chapter User hierarchy
+
+@menu
+* ~/.config::                       User settings.
+* ~/.cache::                        The user's cache.
+* ~/.spool::                        The user's spool.
+* ~/.local::                        User installed software.
+@end menu
+
+
+
+@node ~/.config
+@section @file{~/.config}
+
+@file{~/.config}@footnote{@file{.config} in the user's home directory} is the default
+location for user private settings, it does however normal fallback to the home
+directory, but sometimes @file{~/.config} is not used. @file{~/.config} may however
+be change by setting the environment variable @var{XDG_CONFIG_HOME} accordingly.
+
+
+
+@node ~/.cache
+@section @file{~/.cache}
+
+@file{~/.cache}, which can be changed with the environment variable @var{XDG_CACHE_HOME},
+is the default location for user private cached files.
+
+
+
+@node ~/.spool
+@section @file{~/.spool}
+
+@file{~/.spool} is the default location for user private spooled filed.
+
+
+
+@node ~/.local
+@section @file{~/.local}
+
+@file{~/.local} is the root of the user's personal hierarchy for user installed
+software, it is similar to @file{/} and @file{/usr}. It contains the directories
+@file{bin}, @file{sbin}, @file{games}, @file{lib}, @file{libexec}, @file{libmulti}
+on x86_64 systes, @file{include}, @file{src}, @file{doc} and @file{share}, whose
+purposes are the same as in @file{/usr}. Additionally it @file{opt} with the same
+purposes as @file{/opt} and @file{etc} which is a symbolic link to @file{~/.config}.
+Further it includes @file{var} with the directories @file{games}, @file{lib},
+@file{lock}, @file{log}, @file{spool} and @file{cache}, whose purposes are the same
+as in @file{/var}
 
 
 @node GNU Free Documentation License
