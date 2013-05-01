@@ -539,8 +539,8 @@ application add-ons; and compat versions of packages, that is, another version
 * /usr/bin::                        Non-essential command.
 * /usr/sbin::                       Non-essential system command.
 * /usr/games::                      The game file system hierarchy.
-* /usr/lib::                        Libraries for non-essential programs.
 * /usr/libexec::                    Executable libraries for non-essential programs.
+* /usr/lib::                        Libraries for non-essential programs.
 * /usr/include::                    Library headers for libraries for non-essential programs.
 * /usr/src::                        Program sources.
 * /usr/doc::                        Documentation in non-dedicated format.
