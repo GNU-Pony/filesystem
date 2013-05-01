@@ -105,6 +105,7 @@ install-local:
 	install -d -m755 "$(DESTDIR)"/usr/local/share/licenses
 	install -d -m755 "$(DESTDIR)"/usr/local/share/man
 	install -d -m755 "$(DESTDIR)"/usr/local/share/man/man{1..8}
+	install -d -m755 "$(DESTDIR)"/usr/local/share/misc
 	install -d -m755 "$(DESTDIR)"/usr/local/src
 
 install-var:
