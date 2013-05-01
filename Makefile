@@ -70,7 +70,7 @@ install-usr:
 	install -d -m755 "$(DESTDIR)"/usr
 	install -d -m755 "$(DESTDIR)"/usr/bin
 	ln -s . "$(DESTDIR)"/usr/games
-	install -d -m755 "$(DESTDIR)"/usr/doc
+	ln -s share/doc "$(DESTDIR)"/usr/doc
 	ln -s ../lib "$(DESTDIR)"/usr/lib
 	install -d -m755 "$(DESTDIR)"/usr/libexec
 	install -d -m755 "$(DESTDIR)"/usr/include
@@ -78,7 +78,7 @@ install-usr:
 	install -d -m755 "$(DESTDIR)"/usr/share
 	install -d -m755 "$(DESTDIR)"/usr/share/changelogs
 	install -d -m755 "$(DESTDIR)"/usr/share/dict
-	ln -s ../doc "$(DESTDIR)"/usr/share/doc
+	install -d -m755 "$(DESTDIR)"/usr/share/doc
 	install -d -m755 "$(DESTDIR)"/usr/share/info
 	install -d -m755 "$(DESTDIR)"/usr/share/licenses
 	install -d -m755 "$(DESTDIR)"/usr/share/man
@@ -89,7 +89,7 @@ install-usr:
 install-local:
 	install -d -m755 "$(DESTDIR)"/usr/local
 	install -d -m755 "$(DESTDIR)"/usr/local/bin
-	install -d -m755 "$(DESTDIR)"/usr/local/doc
+	ln -s share/doc "$(DESTDIR)"/usr/local/doc
 	install -d -m755 "$(DESTDIR)"/usr/local/etc
 	ln -s . "$(DESTDIR)"/usr/local/games
 	install -d -m755 "$(DESTDIR)"/usr/local/include
@@ -100,7 +100,7 @@ install-local:
 	install -d -m755 "$(DESTDIR)"/usr/local/sbin
 	install -d -m755 "$(DESTDIR)"/usr/local/share
 	install -d -m755 "$(DESTDIR)"/usr/local/share/changelog
-	ln -s ../doc "$(DESTDIR)"/usr/local/share/doc
+	install -d -m755 "$(DESTDIR)"/usr/local/share/doc
 	install -d -m755 "$(DESTDIR)"/usr/local/share/info
 	install -d -m755 "$(DESTDIR)"/usr/local/share/licenses
 	install -d -m755 "$(DESTDIR)"/usr/local/share/man
