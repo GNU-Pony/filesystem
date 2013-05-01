@@ -69,7 +69,7 @@ install-base:
 install-usr:
 	install -d -m755 "$(DESTDIR)"/usr
 	install -d -m755 "$(DESTDIR)"/usr/bin
-	ln -s bin "$(DESTDIR)"/usr/games
+	ln -s . "$(DESTDIR)"/usr/games
 	install -d -m755 "$(DESTDIR)"/usr/doc
 	ln -s ../lib "$(DESTDIR)"/usr/lib
 	install -d -m755 "$(DESTDIR)"/usr/libexec
@@ -91,7 +91,7 @@ install-local:
 	install -d -m755 "$(DESTDIR)"/usr/local/bin
 	install -d -m755 "$(DESTDIR)"/usr/local/doc
 	install -d -m755 "$(DESTDIR)"/usr/local/etc
-	ln -s bin "$(DESTDIR)"/usr/local/games
+	ln -s . "$(DESTDIR)"/usr/local/games
 	install -d -m755 "$(DESTDIR)"/usr/local/include
 	install -d -m755 "$(DESTDIR)"/usr/local/lib
 	install -d -m755 "$(DESTDIR)"/usr/local/libexec
@@ -207,7 +207,7 @@ install-extension:
 	install -d -m755 "$(DESTDIR)"/localhost/applications
 	ln -s ../../usr/bin "$(DESTDIR)"/localhost/applications/commands
 	[ ! $(with_usr_games) == yes ] \
-	    ln -s ../../usr/bin "$(DESTDIR)"/localhost/applications/games
+	    ln -s ../../usr/games "$(DESTDIR)"/localhost/applications/games
 	ln -s ../../usr/doc "$(DESTDIR)"/localhost/applications/documentations
 	ln -s ../../usr/share/licenses "$(DESTDIR)"/localhost/applications/licenses
 	ln -s ../../usr/share/changelog "$(DESTDIR)"/localhost/applications/changelogs
