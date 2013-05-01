@@ -276,25 +276,24 @@ install-private:
 	install -d -m755 "$(DESTDIR)$$HOME"/.spool
 	install -d -m755 "$(DESTDIR)$$HOME"/.local/opt
 	ln -s ../.config "$(DESTDIR)$$HOME"/.local/etc
-	install -d -m755 "$(DESTDIR)$$HOME"/.local/dict
-	install -d -m755 "$(DESTDIR)$$HOME"/.local{,/local}/bin
-	install -d -m755 "$(DESTDIR)$$HOME"/.local{,/local}/sbin
-	install -d -m755 "$(DESTDIR)$$HOME"/.local{,/local}/lib
-	install -d -m755 "$(DESTDIR)$$HOME"/.local{,/local}/libexec
-	[ ! "$$ARCH" = "x86_64" ] || install -d -m755 "$(DESTDIR)$$HOME"/.local{,/local}/libmulti
-	[ ! "$$ARCH" = "x86_64" ] || ln -s lib "$(DESTDIR)$$HOME"/.local/lib64
-	[ ! "$$ARCH" = "x86_64" ] || ln -s lib "$(DESTDIR)$$HOME"/.local/local/lib64
-	install -d -m755 "$(DESTDIR)$$HOME"/.local{,/local}/include
-	install -d -m755 "$(DESTDIR)$$HOME"/.local{,/local}/share
-	install -d -m755 "$(DESTDIR)$$HOME"/.local/.local{,/local}/share/changelog
-	install -d -m755 "$(DESTDIR)$$HOME"/.local/.local{,/local}/share/info
-	install -d -m755 "$(DESTDIR)$$HOME"/.local/.local{,/local}/share/licenses
-	install -d -m755 "$(DESTDIR)$$HOME"/.local/.local{,/local}/share/man
-	install -d -m755 "$(DESTDIR)$$HOME"/.local/.local{,/local}/share/man/man{1..8}
-	ln -s ../doc "$(DESTDIR)$$HOME"/etc/skel/.local/share/doc
-	ln -s ../doc "$(DESTDIR)$$HOME"/etc/skel/.local/local/share/doc
-	install -d -m755 "$(DESTDIR)$$HOME"/.local{,/local}/src
-	install -d -m755 "$(DESTDIR)$$HOME"/.local{,/local}/doc
+	install -d -m755 "$(DESTDIR)$$HOME"/.local/bin
+	install -d -m755 "$(DESTDIR)$$HOME"/.local/sbin
+	ln -s . "$(DESTDIR)$$HOME"/.local/games
+	install -d -m755 "$(DESTDIR)$$HOME"/.local/lib
+	install -d -m755 "$(DESTDIR)$$HOME"/.local/libexec
+	[ ! "$$ARCH" = "x86_64" ] || install -d -m755 "$(DESTDIR)$$HOME"/.local/libmulti
+	install -d -m755 "$(DESTDIR)$$HOME"/.local/include
+	install -d -m755 "$(DESTDIR)$$HOME"/.local/src
+	install -d -m755 "$(DESTDIR)$$HOME"/.local/share
+	install -d -m755 "$(DESTDIR)$$HOME"/.local/share/dict
+	install -d -m755 "$(DESTDIR)$$HOME"/.local/share/changelog
+	install -d -m755 "$(DESTDIR)$$HOME"/.local/share/info
+	install -d -m755 "$(DESTDIR)$$HOME"/.local/share/licenses
+	install -d -m755 "$(DESTDIR)$$HOME"/.local/share/misc
+	install -d -m755 "$(DESTDIR)$$HOME"/.local/share/man
+	install -d -m755 "$(DESTDIR)$$HOME"/.local/share/man/man{1..8}
+	install -d -m755 "$(DESTDIR)$$HOME"/.local/share/doc
+	ln -s share/doc "$(DESTDIR)$$HOME"/.local/doc
 
 
 install-skel:
@@ -304,25 +303,24 @@ install-skel:
 	install -d -m755 "$(DESTDIR)"/etc/skel/.spool
 	install -d -m755 "$(DESTDIR)"/etc/skel/.local/opt
 	ln -s ../.config "$(DESTDIR)"/etc/skel/.local/etc
-	install -d -m755 "$(DESTDIR)"/etc/skel/.local/dict
-	install -d -m755 "$(DESTDIR)"/etc/skel/.local{,/local}/bin
-	install -d -m755 "$(DESTDIR)"/etc/skel/.local{,/local}/sbin
-	install -d -m755 "$(DESTDIR)"/etc/skel/.local{,/local}/lib
-	install -d -m755 "$(DESTDIR)"/etc/skel/.local{,/local}/libexec
-	[ ! "$$ARCH" = "x86_64" ] || install -d -m755 "$(DESTDIR)"/etc/skel/.local{,/local}/libmulti
-	[ ! "$$ARCH" = "x86_64" ] || ln -s lib "$(DESTDIR)"/etc/skel/.local/lib64
-	[ ! "$$ARCH" = "x86_64" ] || ln -s lib "$(DESTDIR)"/etc/skel/.local/local/lib64
-	install -d -m755 "$(DESTDIR)"/etc/skel/.local{,/local}/include
-	install -d -m755 "$(DESTDIR)"/etc/skel/.local{,/local}/share
-	install -d -m755 "$(DESTDIR)"/etc/skel/.local{,/local}/share/changelog
-	install -d -m755 "$(DESTDIR)"/etc/skel/.local{,/local}/share/info
-	install -d -m755 "$(DESTDIR)"/etc/skel/.local{,/local}/share/licenses
-	install -d -m755 "$(DESTDIR)"/etc/skel/.local{,/local}/share/man
-	install -d -m755 "$(DESTDIR)"/etc/skel/.local{,/local}/share/man/man{1..8}
-	ln -s ../doc "$(DESTDIR)"/etc/skel/.local/share/doc
-	ln -s ../doc "$(DESTDIR)"/etc/skel/.local/local/share/doc
-	install -d -m755 "$(DESTDIR)"/etc/skel/.local{,/local}/src
-	install -d -m755 "$(DESTDIR)"/etc/skel/.local{,/local}/doc
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local/bin
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local/sbin
+	ln -s . "$(DESTDIR)"/etc/skel/.local/games
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local/lib
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local/libexec
+	[ ! "$$ARCH" = "x86_64" ] || install -d -m755 "$(DESTDIR)"/etc/skel/.local/libmulti
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local/include
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local/src
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local/share
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local/share/dict
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local/share/changelog
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local/share/info
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local/share/licenses
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local/share/misc
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local/share/man
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local/share/man/man{1..8}
+	install -d -m755 "$(DESTDIR)"/etc/skel/.local/share/doc
+	ln -s share/doc "$(DESTDIR)"/etc/skel/.local/doc
 
 
 clean:
