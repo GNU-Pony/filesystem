@@ -629,7 +629,7 @@ hierarchy libraries used by legacy 32-bit programs running under IA-32 emulation
 There are no essential programs that are not 64-bit compatible and therefore
 there is no @file{/libmulti}.
 
-To keep it single @file{/usr/lib} points to @file{/lib} and escapes the secondary
+To keep it simple @file{/usr/lib} points to @file{/lib} and escapes the secondary
 hierarchy.
 
 
