@@ -53,6 +53,7 @@ Texts. A copy of the license is included in the section entitled
 * Secondary hierarchy::             The secondary application hierarchy part of the hierarchy.
 * Tertiary hierarchy::              The tertiary application hierarchy part of the hierarchy.
 * User hierarchy::                  User private hierarchy.
+* Simplified hierarchy::            Optional simplified hierarchy.
 * GNU Free Documentation License::  Copying and sharing this manual.
 @end menu
 
@@ -813,6 +814,100 @@ purposes as @file{/opt} and @file{etc} which is a symbolic link to @file{~/.conf
 Further it includes @file{var} with the directories @file{games}, @file{lib},
 @file{lock}, @file{log}, @file{spool} and @file{cache}, whose purposes are the same
 as in @file{/var}
+
+
+
+@node Simplified hierarchy
+@chapter Simplified hierarchy
+
+@menu
+* /localhost::                      Simplified hierarchy root.
+* /localhost/users::                Data for users.
+* /localhost/temporary::            Temporary files.
+@end menu
+
+
+The simplified hierarchy is an optional extension to the filesystem hierarchy,
+that is not recommended. The simplified hierarchy has symlinks to essentially
+all standard locations in the filesystem hierarchy but uses simpler names,
+because of the only major difference is names and that essentially only power
+usets actually uses the hierarchy it is recommand to just learn the normal
+hierarchy which is easier to use when you know it. However the simplified
+hierarchy ranges directories my similarity rather than have a rather flat
+hierarchy duplicated in three layered groups.
+
+
+
+@node /localhost
+@section @file{/localhost}
+
+@file{/localhost} is the root of the simplified hierarchy, the standard
+hierarchy can be hidden in most file managers by installing yet another
+extension.
+
+
+
+@node /localhost/users
+@section @file{/localhost/users}
+
+Data that is meant to be used by the users are located in
+@file{/localhost/users}. @file{/localhost/users/private} contains user
+homes, while @file{/localhost/users/public} contains the directories
+@file{shared}, @file{administrated} and @file{mounted} which are accessable
+by all users.
+
+@file{shared} contains data contributed by all users, which
+@file{administrated} requires privileges to modify which by default
+means only root.
+
+@file{/media} as a superdirectory of long term mount points,
+more specifically, it is intended to only contain directories that are
+used as mount points for long term mounted filesystems that is not
+incorporated into the remaining part of the filesystem hierarchy.
+
+
+
+@node /localhost/temporary
+@section @file{/localhost/temporary}
+
+@file{/localhost/temporary} contains directories for temporary data.
+It contains the subdirectories:
+
+@table @file
+@item persistent
+Temporary files that are perserved between boots.
+
+@item transient
+Temporary files that are lost between boots.
+
+@item shared
+Files stored using the shared memory module.
+
+@item cache
+Cached files, these can be clean at any time.
+
+@item spool
+Spool files, these can only safely be removed by the program that added them.
+
+@item large
+Variable data for programs in @file{/localhost/applications/large}, this does
+not necessarily contain only temporary files. It contains a directories for
+programs, and the program choose how that want to organise there variable files. 
+
+@item host/cache
+Cached files for programs in @file{/localhost/host/applications}, these can
+be clean at any time.
+
+@item host/spool
+Spool files for programs in @file{/localhost/host/applications}, these can only
+safely be removed by the program that added them.
+
+@item mount
+Directory file a temporarly mounted, by the user, storage device.
+
+@end table
+
+
 
 
 @node GNU Free Documentation License
