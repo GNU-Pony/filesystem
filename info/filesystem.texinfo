@@ -755,7 +755,8 @@ with one word per line and are program independent.
 and is identical to the secondary hierarchy@footnote{@file{/usr} is the secondary
 hierarchy.}, except @file{/usr/local/share/dict} is not pre-created, and should only
 include data for @file{/usr/local} programs, and not programs installed in @file{/},
-@file{/usr} or @file{/opt}.
+@file{/usr} or @file{/opt}. However their is an additional directory @file{/usr/local/etc}
+for system-wide host-specific configurations for programs located in @file{/usr/local}.
 
 @file{/usr/local} is the hierarchy for host-specific data, which includes software
 installed from a non-standard repostory. System administrators can, here, install
@@ -904,6 +905,42 @@ safely be removed by the program that added them.
 
 @item mount
 Directory file a temporarly mounted, by the user, storage device.
+
+@end table
+
+
+
+@node /localhost/applications
+@section @file{/localhost/applications}
+
+@file{/localhost/applications} is the location for non-essential programs.
+It contains the subdirectories:
+
+@table @file
+@item commands
+This directory contains commands for non-essential programs.
+
+@item games
+If the true filesystem hierarchy contains a separate directory for games, this
+directory will exists, and contain directories such as @file{bin} for commands,
+and @file{share} for data.
+
+@item large
+This directory contains large self-contained packages, that contains their own
+library copies; problematic packages, that do not comform to a standard filesystem
+hierarchy or need their of library copies for compatiblity reasons; application
+add-ons; and compat versions of packages, that is, another version
+(version number) of a that is installed side by side with the mane verison.
+
+@item documentations
+Programs containing documentation in non-dedicated formats should install
+their such documentation to this directory.
+
+@item licenses
+Programs should install licenses and other legal documents to this directory.
+
+@item changelogs
+Programs can install change logs to this directory.
 
 @end table
 
