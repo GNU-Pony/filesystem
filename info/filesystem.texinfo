@@ -825,6 +825,7 @@ as in @file{/var}
 * /localhost::                      Simplified hierarchy root.
 * /localhost/users::                Data for users.
 * /localhost/temporary::            Temporary files.
+* /localhost/applications::         Applications.
 @end menu
 
 
