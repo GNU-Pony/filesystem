@@ -825,7 +825,8 @@ as in @file{/var}
 * /localhost::                      Simplified hierarchy root.
 * /localhost/users::                Data for users.
 * /localhost/temporary::            Temporary files.
-* /localhost/applications::         Applications.
+* /localhost/applications::         Application directories.
+* /localhost/system::               System directories.
 @end menu
 
 
@@ -942,6 +943,79 @@ Programs should install licenses and other legal documents to this directory.
 
 @item changelogs
 Programs can install change logs to this directory.
+
+@end table
+
+
+
+@node /localhost/system
+@section @file{/localhost/system}
+
+@file{/localhost/system} is the location system files.
+It contains the subdirectories:
+
+@table @file
+@item boot
+This is the mount point for the partition that the bootmanager starts
+and contains the bootloader that boots an operativing system.
+
+It contains all bootable kernels and initramfs:es that are not booted
+by a chainloaded bootloaders; it also contains settings for your
+bootloader and tools your can run, instead of your operativing system,
+for diagnositics.
+
+@item kernel/devices
+This is a mount point for the kernel advanced programming interface
+filesystem for devices and pseudodevices.
+
+@item kernel/processes
+This is a mount point for the kernel advanced programming interface
+filesystem for information about processes. It does contain some miscellany,
+but it also cotains one directory for each process named as the process ID.
+
+@item kernel/access
+This is a mount point for the kernel advanced programming interface
+filesystem for kernel and hardware access and modification.
+
+@item kernel/state
+This is a mount point for the advanced programming interface
+filesystem for run-time variable data. It contains system information
+describing the system since it was booted. Programs may have subdirectories;
+process identifiers and UNIX-domain sockets used by programs should be
+placed in this file system.
+
+@item admininstrator
+This is the home directory for the system administrator, the user
+@code{root}. Normally there is no much point to have a home directory
+for the system administrator as that is not any user intended for use
+beyond administrations. However, it will contian application configurations
+if the user chooses to have any, and can also be used to store files needed
+for administration, that you do not want to be clutter up your non-root
+user home directory.
+
+@item logs
+This directory contains system logs.
+
+@item source
+This is the directory for source files that may be needed by another program
+or scroll, or by the program itself. On a typical system this directory will
+contain and only contain the kernel source.
+
+@item empty
+This is a directory that should be empty, that services can @command{chroot}
+instances into to hide the file system.
+
+@item resources
+This directory is the root of the hierarchy for all read-only architecture
+independent data files, which means, no executable files or libraries unless
+they are executable libraries intended to be used by the program installed
+with them.
+
+@item runtime/locks
+This is the directory of file locks.
+
+@item runtime/state
+This is the directory of program and system state data.
 
 @end table
 
