@@ -163,7 +163,7 @@ install-extension:
 	install -d -m755 "$(DESTDIR)"/localhost
 	install -d -m755 "$(DESTDIR)"/localhost/system
 	install -d -m755 "$(DESTDIR)"/localhost/system/essentials
-	ln -s ../../../bin "$(DESTDIR)"/localhost/system/essentials/maintainance
+	ln -s ../../../bin "$(DESTDIR)"/localhost/system/essentials/maintenance
 	ln -s ../../../sbin "$(DESTDIR)"/localhost/system/essentials/system
 	ln -s ../../../lib "$(DESTDIR)"/localhost/system/essentials/libraries
 	[ ! $(with_libraries64) == yes ] || \
