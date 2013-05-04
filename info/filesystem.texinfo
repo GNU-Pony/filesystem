@@ -827,6 +827,7 @@ as in @file{/var}
 * /localhost/temporary::            Temporary files.
 * /localhost/applications::         Application directories.
 * /localhost/system::               System directories.
+* /localhost/system/essential::     Essential application directories.
 @end menu
 
 
@@ -1021,10 +1022,48 @@ This is the directory of program and system state data.
 
 
 
+@node /localhost/system/essentials
+@section @file{/localhost/system/essentials}
+
+@file{/localhost/system/essentials} is the directory for essential applications.
+It contains the following subdirectories:
+
+@table @file
+@item maintenance
+This is the directory for commands needed for system maintenance. This does
+include command you will use regulary everyday, but not all of them, just the
+ones you would also need for normal system maintenance and rescue.
+
+@item system
+This is the directory for essential binaries used system modifications and
+interaction. While @file{maintenance} contains normal everyday commands,
+@file{system} contains commands normally used by the system initialisation,
+but primarly system daemons, commands for hardware and system setup, and similar
+commands, take a peek in for a better understanding.
+
+@item libraries
+The is the directory for libraries used by commands in @file{maintenance} and
+@file{system}, but is also contains executable non-commands used by those commands,
+that is, commands that are intended for use by other commands and not directly by
+a user.
+
+On x86_64 systems you will find @file{libraries64} if the real directory is not
+the same as the real directory for @file{libraries}.
+
+@end table
+
+
+
 
 @node GNU Free Documentation License
 @appendix GNU Free Documentation License
 @include fdl.texinfo
 
 @bye
+
+
+
+
+@node /sbin
+@section @file{/sbin}
 
