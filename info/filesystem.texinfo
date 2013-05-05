@@ -640,7 +640,7 @@ hierarchy.
 @section @file{/usr/include}
 
 While @file{/usr/lib} are binaries, @file{/usr/include} are source headers for
-libraries @file{/usr/lib}, they are used for programs that seek to use
+@file{/usr/lib} libraries, they are used for programs that seek to use
 @file{/usr/lib} libraries and need to know the structure of those libraries at
 compile time by source and not by binary.
 
@@ -828,6 +828,7 @@ as in @file{/var}
 * /localhost/applications::         Application directories.
 * /localhost/system::               System directories.
 * /localhost/system/essential::     Essential application directories.
+* /localhost/system/applications::  Application directories.
 @end menu
 
 
@@ -1054,16 +1055,57 @@ the same as the real directory for @file{libraries}.
 
 
 
+@node /localhost/system/applications
+@section @file{/localhost/system/applications}
+
+@file{/localhost/system/essentials} is the directory for non-essential
+applications. It contains the following subdirectories:
+
+
+@table @file
+@item commands
+This directory contains commands for non-essential programs.
+
+@item system
+This is the directory for non-essential binaries used system modifications and
+interaction.
+
+@item libraries
+The is the directory for libraries used by commands in @file{commands} and
+@file{system}.
+
+On x86_64 systems you will find @file{libraries64} if the real directory is not
+the same as the real directory for @file{libraries}.
+
+Additionally, on x86_64 systems you will also find @file{multilibraries}, it is
+the home of secondary hierarchy libraries used by legacy 32-bit programs running
+under IA-32 emulation.
+
+@item execlibraries
+This is the directory for commands that are meant for other programs to execute,
+there is however nothing stopping you from running then directly yourself,
+that is just not designed for that.
+
+@item headers
+While @file{libraries} are binaries, @file{headers} are source headers for
+@file{libraries} libraries, they are used for programs that seek to use
+@file{libraries} libraries and need to know the structure of those libraries at
+compile time by source and not by binary.
+
+@item mail
+This is the directory of user e-mail fetched by a e-mail service.
+
+@item games
+This is the directory of variable game data, such as high scores.
+
+@end table
+
+
+
 
 @node GNU Free Documentation License
 @appendix GNU Free Documentation License
 @include fdl.texinfo
 
 @bye
-
-
-
-
-@node /sbin
-@section @file{/sbin}
 
