@@ -829,6 +829,7 @@ as in @file{/var}
 * /localhost/system::               System directories.
 * /localhost/system/essential::     Essential application directories.
 * /localhost/system/applications::  Application directories.
+* /localhost/host::                 Host-specific data.
 @end menu
 
 
@@ -1097,6 +1098,40 @@ This is the directory of user e-mail fetched by a e-mail service.
 
 @item games
 This is the directory of variable game data, such as high scores.
+
+@end table
+
+
+
+@node /localhost/host
+@section @file{/localhost/host}
+
+@file{/localhost/host} is the superdirectory for host-specific files, it contains
+the directory @file{service} for files hosted by services provided by the host,
+@file{configurations/system} for system-wide configurations,
+@file{configurations/local} for system-wide configurations for host-specific
+programs, and @file{configurations/large} for system-wide configurations for
+self-contained programs.
+
+Further it contains the directory @file{applications} with the subdirectories:
+
+@table
+@item commands
+Host-specific commands.
+
+@item games
+If the true filesystem hierarchy contains a separate directory for host-specific
+games, this directory will exists, and contain directories such as @file{bin} for
+commands, and @file{share} for data.
+
+@item documentation
+Documentation for host-specific packages, in a non-dedicated documentation format.
+
+@item licenses
+Licensing information for host-specific packages.
+
+@item changelogs
+Change logs for host-specific packages.
 
 @end table
 
