@@ -827,9 +827,10 @@ as in @file{/var}
 * /localhost/temporary::            Temporary files.
 * /localhost/applications::         Application directories.
 * /localhost/system::               System directories.
-* /localhost/system/essential::     Essential application directories.
+* /localhost/system/essentials::    Essential application directories.
 * /localhost/system/applications::  Application directories.
 * /localhost/host::                 Host-specific data.
+* /localhost/host/system::          Host-specific system data.
 @end menu
 
 
@@ -1044,7 +1045,7 @@ but primarly system daemons, commands for hardware and system setup, and similar
 commands, take a peek in for a better understanding.
 
 @item libraries
-The is the directory for libraries used by commands in @file{maintenance} and
+This is the directory for libraries used by commands in @file{maintenance} and
 @file{system}, but is also contains executable non-commands used by those commands,
 that is, commands that are intended for use by other commands and not directly by
 a user.
@@ -1072,7 +1073,7 @@ This is the directory for non-essential binaries used system modifications and
 interaction.
 
 @item libraries
-The is the directory for libraries used by commands in @file{commands} and
+This is the directory for libraries used by commands in @file{commands} and
 @file{system}.
 
 On x86_64 systems you will find @file{libraries64} if the real directory is not
@@ -1115,7 +1116,7 @@ self-contained programs.
 
 Further it contains the directory @file{applications} with the subdirectories:
 
-@table
+@table @file
 @item commands
 Host-specific commands.
 
@@ -1132,6 +1133,62 @@ Licensing information for host-specific packages.
 
 @item changelogs
 Change logs for host-specific packages.
+
+@end table
+
+
+
+@node /localhost/host/system
+@section @file{/localhost/host/system}
+
+@file{/localhost/host/system} contains system files that are host-specific,
+it contains the directories:
+
+
+@table @file
+@item commands
+This is the directory for host-specific binaries used system modifications and
+interaction.
+
+@item libraries
+This is the directory for libraries used only by host-specific programs.
+
+On x86_64 systems you will find @file{libraries64} if the real directory is not
+the same as the real directory for @file{libraries}.
+
+Additionally, on x86_64 systems you will also find @file{multilibraries}, it is
+the home of local hierarchy libraries used by legacy 32-bit programs running
+under IA-32 emulation.
+
+@item execlibraries
+This is the directory for commands that are meant for other programs to execute,
+there is however nothing stopping you from running then directly yourself,
+that is just not designed for that.
+
+@item headers
+While @file{libraries} are binaries, @file{headers} are source headers for
+@file{libraries} libraries, they are used for programs that seek to use
+@file{libraries} libraries and need to know the structure of those libraries at
+compile time by source and not by binary.
+
+@item source
+This is the directory for source files that may be needed by another program
+or scroll, or by the program itself.
+
+@item resources
+This directory is the root of the hierarchy for all read-only architecture
+independent data files, which means, no executable files or libraries unless
+they are executable libraries intended to be used by the program installed
+with them.
+
+@item games
+This is the directory of variable game data, such as high scores.
+
+@item runtime/locks
+This is the directory of file locks.
+
+@item runtime/state
+This is the directory of program and system state data.
 
 @end table
 

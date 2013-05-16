@@ -18,7 +18,7 @@ games = 50
 
 
 
-all:
+all: doc
 
 doc: info
 
