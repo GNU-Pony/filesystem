@@ -54,6 +54,7 @@ Texts. A copy of the license is included in the section entitled
 * Tertiary hierarchy::              The tertiary application hierarchy part of the hierarchy.
 * User hierarchy::                  User private hierarchy.
 * Simplified hierarchy::            Optional simplified hierarchy.
+* Further simplified hierarchy::    Optional further simplified hierarchy.
 * GNU Free Documentation License::  Copying and sharing this manual.
 @end menu
 
@@ -1192,6 +1193,28 @@ This is the directory of program and system state data.
 
 @end table
 
+
+
+@node Further simplified hierarchy
+@chapter Further simplified hierarchy
+
+If you are installing the system for a non-poweruser you may consider using
+the most simplified filesystem hierarchy, which is limited only the the essentials.
+
+With this extension, you get the directories @file{/Applications}, @file{/Users},
+@file{/Volumes}, @file{/Temporary} and @file{/Shared Files}. @file{/Applications}
+is a link to @file{/usr/share/applications} which is where application lauchers
+are installed; @file{/Users} is a link to @file{/home}, the users' home directories
+(excluding root and any user with a non-standard home directory location);
+and @file{/Volumes} is a link to @file{/media}, the directory where hard drives and
+other storage devices are normally mounted.
+
+If the true filesystem hierarchy has @file{/share}, a directory for user shared
+and user administrated data, @file{/Shared Files} will exist, linking to that directory.
+
+The directory @file{/Temporary} contains the directories @file{Persistent},
+@file{Transient} and @file{Cache} linking to @file{/var/tmp}, @file{/tmp} and
+@file{/var/cache} respectively.
 
 
 
