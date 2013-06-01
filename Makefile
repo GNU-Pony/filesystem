@@ -338,5 +338,5 @@ install-skel:
 
 
 clean:
-	-rm -f {*,*/*}.{aux,cp,fn,info,ky,log,pdf,ps,dvi,pg,toc,tp,vr.gz}
+	-rm -f {*,*/*}.{aux,cp,fn,info,ky,log,pdf,ps,dvi,pg,toc,tp,vr,gz}
 
