@@ -28,6 +28,10 @@ info: filesystem.info.gz
 	makeinfo "$<"
 	gzip -9 -f "$*.info"
 
+pdf: filesystem.pdf
+%.pdf: info/%.texinfo
+	texi2pdf "$<"
+
 
 
 install: install-base install-usr install-local install-var install-logs install-extended
