@@ -548,7 +548,8 @@ application add-ons; and compat versions of packages, that is, another version
 * /usr/src::                        Program sources.
 * /usr/doc::                        Documentation in non-dedicated format.
 * /usr/share::                      Read-only architecture independent data files.
-* /usr/share/changelogs::           Change longs.
+* /usr/share/applications::         Application launchers.
+* /usr/share/changelogs::           Change logs.
 * /usr/share/licenses::             Packages licenses.
 * /usr/share/misc::                 Miscellaneous read-only architecture independent data files.
 * /usr/share/info::                 @command{info} manuals.
@@ -693,6 +694,14 @@ is not covered for all architectures.
 Essential programs, that is, programs installed to @file{/}, should not have
 data files, but if required, it should be installed to @file{/lib} rather
 than @file{/usr/share} or @file{/share}.
+
+
+
+@node /usr/share/applications
+@section /usr/share/applications
+
+@file{/usr/share/applications} is directory for application launchers for graphical
+environments.
 
 
 

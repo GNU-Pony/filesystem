@@ -80,6 +80,7 @@ install-usr:
 	install -d -m755 "$(DESTDIR)"/usr/include
 	install -d -m755 "$(DESTDIR)"/usr/sbin
 	install -d -m755 "$(DESTDIR)"/usr/share
+	install -d -m755 "$(DESTDIR)"/usr/share/applications
 	install -d -m755 "$(DESTDIR)"/usr/share/changelogs
 	install -d -m755 "$(DESTDIR)"/usr/share/dict
 	install -d -m755 "$(DESTDIR)"/usr/share/doc
@@ -120,6 +121,14 @@ install-var:
 	chgrp $(games) "$(DESTDIR)"/var/games
 	install -d -m755 "$(DESTDIR)"/var/lib
 	install -d -m755 "$(DESTDIR)"/var/local
+	install -d -m755 "$(DESTDIR)"/var/local/cache
+	install -d -m775 "$(DESTDIR)"/var/local/games
+	chgrp $(games) "$(DESTDIR)"/var/local/games
+	install -d -m755 "$(DESTDIR)"/var/local/lib
+	install -d -m755 "$(DESTDIR)"/var/local/lock
+	install -d -m755 "$(DESTDIR)"/var/local/log
+	ln -s ../../run "$(DESTDIR)"/var/local/run
+	install -d -m755 "$(DESTDIR)"/var/local/spool
 	install -d -m755 "$(DESTDIR)"/var/lock
 	install -d -m755 "$(DESTDIR)"/var/log
 	install -d -m755 "$(DESTDIR)"/var/opt
@@ -199,19 +208,19 @@ install-extension:
 	ln -s ../../../var/lock "$(DESTDIR)"/localhost/system/runtime/locks
 	ln -s ../../../var/lib "$(DESTDIR)"/localhost/system/runtime/state
 	install -d -m755 "$(DESTDIR)"/localhost/temporary
-	ln -s ../../../var/tmp "$(DESTDIR)"/localhost/temporary/persistent
-	ln -s ../../../tmp "$(DESTDIR)"/localhost/temporary/transient
-	ln -s ../../../dev/shm "$(DESTDIR)"/localhost/temporary/shared
-	ln -s ../../../var/cache "$(DESTDIR)"/localhost/temporary/cache
-	ln -s ../../../var/spool "$(DESTDIR)"/localhost/temporary/spool
-	ln -s ../../../var/opt "$(DESTDIR)"/localhost/temporary/large
-	ln -s ../../../ "$(DESTDIR)"/localhost/temporary/host
+	ln -s ../../var/tmp "$(DESTDIR)"/localhost/temporary/persistent
+	ln -s ../../tmp "$(DESTDIR)"/localhost/temporary/transient
+	ln -s ../../dev/shm "$(DESTDIR)"/localhost/temporary/shared
+	ln -s ../../var/cache "$(DESTDIR)"/localhost/temporary/cache
+	ln -s ../../var/spool "$(DESTDIR)"/localhost/temporary/spool
+	ln -s ../../var/opt "$(DESTDIR)"/localhost/temporary/large
+	install -d -m755  "$(DESTDIR)"/localhost/temporary/host
 	ln -s ../../../var/local/cache "$(DESTDIR)"/localhost/temporary/host/cache
 	ln -s ../../../var/local/spool "$(DESTDIR)"/localhost/temporary/host/spool
 	ln -s ../../mnt "$(DESTDIR)"/localhost/temporary/mount
 	install -d -m755 "$(DESTDIR)"/localhost/applications
 	ln -s ../../usr/bin "$(DESTDIR)"/localhost/applications/commands
-	[ ! $(with_usr_games) == yes ] \
+	[ ! $(with_usr_games) == yes ] || \
 	    ln -s ../../usr/games "$(DESTDIR)"/localhost/applications/games
 	ln -s ../../usr/doc "$(DESTDIR)"/localhost/applications/documentations
 	ln -s ../../usr/share/licenses "$(DESTDIR)"/localhost/applications/licenses
@@ -225,11 +234,11 @@ install-extension:
 	ln -s ../../srv "$(DESTDIR)"/localhost/host/service
 	install -d -m755 "$(DESTDIR)"/localhost/host/applications
 	ln -s ../../../usr/local/bin "$(DESTDIR)"/localhost/host/applications/commands
-	[ ! $(with_local_games) == yes ] \
+	[ ! $(with_local_games) == yes ] || \
 	    ln -s ../../../usr/local/games "$(DESTDIR)"/localhost/host/applications/games
 	ln -s ../../../usr/local/doc "$(DESTDIR)"/localhost/host/applications/documentations
 	ln -s ../../../usr/local/share/licenses "$(DESTDIR)"/localhost/host/applications/licenses
-	ln -s ../../../usr/local/share/changelog "$(DESTDIR)"/localhost/host/applications/changelogs
+	ln -s ../../../usr/local/share/changelogs "$(DESTDIR)"/localhost/host/applications/changelogs
 	install -d -m755 "$(DESTDIR)"/localhost/host/system
 	ln -s ../../../usr/local/sbin "$(DESTDIR)"/localhost/host/system/commands
 	ln -s ../../../usr/local/lib "$(DESTDIR)"/localhost/host/system/libraries
