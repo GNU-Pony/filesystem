@@ -39,9 +39,9 @@ install: install-base install-usr install-local install-var install-logs install
 
 install-base:
 	install -d -m755 "$(DESTDIR)"/bin
-	if [ $BOOT = normal ]; then                 \
+	if [ $(BOOT) = normal ]; then                 \
 	    install -d -m755 "$(DESTDIR)"/boot;     \
-	elif [ $BOOT = flat ]; then                 \
+	elif [ $(BOOT) = flat ]; then                 \
 	    ln -s . "$(DESTDIR)"/boot;              \
 	fi
 	install -d -m755 "$(DESTDIR)"/dev
