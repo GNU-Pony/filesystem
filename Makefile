@@ -279,7 +279,7 @@ install-initram:
 	ln -s . "$(DESTDIR)"/usr
 	ln -s . "$(DESTDIR)"/local
 	touch "$(DESTDIR)"/etc/fstab
-	ln -s /proc/self/mount "$(DESTDIR)"/etc/mtab
+	ln -s /proc/self/mounts "$(DESTDIR)"/etc/mtab
 
 
 install-private:
