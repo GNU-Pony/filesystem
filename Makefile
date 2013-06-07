@@ -34,7 +34,7 @@ pdf: filesystem.pdf
 
 
 
-install: install-base install-usr install-local install-var install-logs install-extended
+install: install-base install-usr install-local install-var install-files install-extended
 	[ ! "$$ARCH" = "x86_64" ] || make "DESTDIR=$(DESTDIR)" install-64
 
 install-base:
@@ -138,12 +138,14 @@ install-var:
 	ln -s ../mail "$(DESTDIR)"/var/spool/mail
 	install -d -m1755 "$(DESTDIR)"/var/tmp
 
-install-logs:
+install-files:
 	touch "$(DESTDIR)"/var/log/{btmp,wtmp,lastlog}
 	chmod 644 "$(DESTDIR)"/var/log/lastlog
 	chgrp $(utmp) "$(DESTDIR)"/var/log/lastlog
 	chmod 644 "$(DESTDIR)"/var/log/wtmp
 	chmod 600 "$(DESTDIR)"/var/log/btmp
+	touch "$(DESTDIR)"/etc/fstab
+	ln -s /proc/self/mounts "$(DESTDIR)"/etc/mtab
 
 install-64:
 	ln -s lib "$(DESTDIR)"/lib64
