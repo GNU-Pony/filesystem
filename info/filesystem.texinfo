@@ -10,6 +10,12 @@
 @c %**end of header
 
 
+@dircategory System
+@direntry
+* filesystem: (filesystem).          Filesystem hierarchy implementation for GNU/Pony
+@end direntry
+
+
 @copying
 Copyright @copyright{} 2013 Mattias Andrée
 
