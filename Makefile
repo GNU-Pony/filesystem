@@ -144,7 +144,6 @@ install-files:
 	chgrp $(utmp) "$(DESTDIR)"/var/log/lastlog
 	chmod 644 "$(DESTDIR)"/var/log/wtmp
 	chmod 600 "$(DESTDIR)"/var/log/btmp
-	touch "$(DESTDIR)"/etc/fstab
 	ln -s /proc/self/mounts "$(DESTDIR)"/etc/mtab
 
 install-64:
