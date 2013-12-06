@@ -291,7 +291,7 @@ install-private:
 	install -d -m755 "$(DESTDIR)$$HOME"/.local/opt
 	ln -s ../.config "$(DESTDIR)$$HOME"/.local/etc
 	install -d -m755 "$(DESTDIR)$$HOME"/.local/bin
-	install -d -m755 "$(DESTDIR)$$HOME"/.local/sbin
+	ln -s bin "$(DESTDIR)$$HOME"/.local/sbin
 	ln -s . "$(DESTDIR)$$HOME"/.local/games
 	install -d -m755 "$(DESTDIR)$$HOME"/.local/lib
 	install -d -m755 "$(DESTDIR)$$HOME"/.local/libexec
