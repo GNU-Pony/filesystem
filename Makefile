@@ -154,7 +154,7 @@ install-64:
 
 install-extended:
 	install -d -m755 "$(DESTDIR)"/info
-	install -d -m1755 "$(DESTDIR)"/share
+	install -d -m1755 "$(DESTDIR)"/shared
 
 
 install-hide:
@@ -170,7 +170,7 @@ install-slim-extension:
 	ln -s ../tmp "$(DESTDIR)"/Temporary/Transient
 	ln -s ../var/cache "$(DESTDIR)"/Temporary/Cache
 	[ ! $(with_extended) == yes ] || \
-	    ln -s ./share "$(DESTDIR)"/Shared\ File
+	    ln -s ./shared "$(DESTDIR)"/Shared\ File
 
 
 install-extension:
@@ -257,7 +257,7 @@ install-extension:
 	ln -s ../../home "$(DESTDIR)"/localhost/users/private
 	install -d -m755 "$(DESTDIR)"/localhost/users/public
 	[ ! $(with_extended) == yes ] || \
-	    ln -s ../../../share "$(DESTDIR)"/localhost/users/public/shared
+	    ln -s ../../../shared "$(DESTDIR)"/localhost/users/public/shared
 	[ ! $(with_extended) == yes ] || \
 	    ln -s ../../../info "$(DESTDIR)"/localhost/users/public/administrated
 	ln -s ../../../media "$(DESTDIR)"/localhost/users/public/mounted

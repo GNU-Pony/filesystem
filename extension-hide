@@ -14,7 +14,7 @@ proc
 root
 run
 sbin
-share
+shared
 src
 sys
 tmp
