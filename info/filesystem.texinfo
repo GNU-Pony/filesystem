@@ -93,7 +93,7 @@ by the Linux Foundation.
 * /root::                           Administrator directory.
 * /home::                           User directories.
 * /info::                           Administrated shared files.
-* /share::                          User shared data.
+* /shared::                         User shared data.
 @end menu
 
 
@@ -201,14 +201,14 @@ friends SFTP access.
 
 
 
-@node /share
-@section @file{/share}
+@node /shared
+@section @file{/shared}
 
-@file{/share} (``sharing is magic'')@footnote{Or ``slash share'' or just
-``share''} is a GNU/Pony extension to the filesystem hierarchy. It is intended
+@file{/shared} (``sharing is magic'')@footnote{Or ``slash shared'' or just
+``shared''} is a GNU/Pony extension to the filesystem hierarchy. It is intended
 for user shared files. While users are recommended to create a directory
 @file{~/Public} and give everypony read access to it, and store personal
-non-private files in it for other ponies to read or canabalise, @file{/share}
+non-private files in it for other ponies to read or canabalise, @file{/shared}
 is intended for all users to use together for non-personal data, for example,
 you can put your radio shows, music, books or whatever, there.
 
@@ -824,13 +824,13 @@ is the default location for user private cached files.
 
 @file{~/.local} is the root of the user's personal hierarchy for user installed
 software, it is similar to @file{/} and @file{/usr}. It contains the directories
-@file{bin}, @file{sbin}, @file{games}, @file{lib}, @file{libexec}, @file{libmulti}
-on x86_64 systes, @file{include}, @file{src}, @file{doc} and @file{share}, whose
-purposes are the same as in @file{/usr}. Additionally it @file{opt} with the same
-purposes as @file{/opt} and @file{etc} which is a symbolic link to @file{~/.config}.
-Further it includes @file{var} with the directories @file{games}, @file{lib},
-@file{lock}, @file{log}, @file{spool} and @file{cache}, whose purposes are the same
-as in @file{/var}
+@file{bin}, @file{sbin} symlinked to @file{bin}, @file{games}, @file{lib},
+@file{libexec}, @file{libmulti} on x86_64 systems, @file{include}, @file{src},
+@file{doc} and @file{share}, whose purposes are the same as in @file{/usr}.
+Additionally it contains @file{opt} with the same purposes as @file{/opt} and
+@file{etc} which is a symbolic link to @file{~/.config}. Further it includes
+@file{var} with the directories @file{games}, @file{lib}, @file{lock}, @file{log},
+@file{spool} and @file{cache}, whose purposes are the same as in @file{/var}
 
 
 
@@ -1224,7 +1224,7 @@ are installed; @file{/Users} is a link to @file{/home}, the users' home director
 and @file{/Volumes} is a link to @file{/media}, the directory where hard drives and
 other storage devices are normally mounted.
 
-If the true filesystem hierarchy has @file{/share}, a directory for user shared
+If the true filesystem hierarchy has @file{/shared}, a directory for user shared
 and user administrated data, @file{/Shared Files} will exist, linking to that directory.
 
 The directory @file{/Temporary} contains the directories @file{Persistent},
