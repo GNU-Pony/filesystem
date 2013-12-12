@@ -45,12 +45,12 @@ Additional "yes"/"no" options for `install-extension`:
     -e /usr/libmulti
 
   with_extended = yes
-    -e /info -a -e /share
+    -e /info -a -e /shared
 
 
 Additional "yes"/"no" options for `install-slim-extension`:
   with_extended = yes
-    -e /share
+    -e /shared
 
 
 Group options:
