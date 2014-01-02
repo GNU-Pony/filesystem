@@ -720,7 +720,7 @@ than @file{/usr/share} or @file{/share}.
 
 
 @node /usr/share/applications
-@section /usr/share/applications
+@section @file{/usr/share/applications}
 
 @file{/usr/share/applications} is directory for application launchers for graphical
 environments.
