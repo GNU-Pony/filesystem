@@ -283,6 +283,7 @@ filesystem for kernel and hardware access and modification.
 @menu
 * /boot::                           The boot partition.
 * /etc::                            Host-specific settings.
+* /etc/alternatives::               Mechanism for selecting provider for commands.
 * /etc/opt::                        Host-specific settings for @file{/opt}.
 * /etc/skel::                       User skeleton.
 @end menu
@@ -305,6 +306,21 @@ for diagnositics.
 
 @file{/etc} (pronounced however you wish) the directory for system-wide
 host-specific configurations.
+
+
+@node /etc/alternatives
+@section @file{/etc/alternatives}
+
+@file{/etc/alternatives} is a directory that contain symlinks. Each symlink,
+is named as a common, for example @file{sh}, and that command is a symlink
+to that symlink. The symlinks in this directory may point to the actual command
+that provides them. For example, @file{/bin/sh} should point to
+@file{/etc/alternatives/sh} which in turn may point to @file{/bin/bash},
+but its better if it points to @file{/etc/alternatives.providers/sh/bash}
+which points to @file{/bin/bash}. @file{/etc/alternatives.providers} is a
+related directory that contains directories named as commands. These
+directories contains symlinks named as the packages that can provide them
+and points the their corresponding commands.
 
 
 @node /etc/opt

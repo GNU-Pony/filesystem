@@ -48,6 +48,8 @@ install-base:
 	install -d -m755 "$(DESTDIR)"/dev/pts
 	install -d -m755 "$(DESTDIR)"/dev/shm
 	install -d -m755 "$(DESTDIR)"/etc
+	install -d -m755 "$(DESTDIR)"/etc/alternatives
+	install -d -m755 "$(DESTDIR)"/etc/alternatives.providers
 	install -d -m755 "$(DESTDIR)"/etc/opt
 	install -d -m755 "$(DESTDIR)"/etc/skel
 	install -d -m755 "$(DESTDIR)"/etc/profile.d
