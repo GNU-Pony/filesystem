@@ -1231,7 +1231,7 @@ This is the directory of program and system state data.
 @chapter Further simplified hierarchy
 
 If you are installing the system for a non-poweruser you may consider using
-the most simplified filesystem hierarchy, which is limited only the the essentials.
+the most simplified filesystem hierarchy, which is limited only to the essentials.
 
 With this extension, you get the directories @file{/Applications}, @file{/Users},
 @file{/Volumes}, @file{/Temporary} and @file{/Shared Files}. @file{/Applications}
