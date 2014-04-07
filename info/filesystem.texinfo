@@ -610,10 +610,11 @@ hierarchy's @file{/sbin}.
 @section @file{/usr/games}
 
 @file{/usr/games} is a historical directory whose purpose was to contain games
-as they normally are much larger, letting to store @file{/usr/games} on different
-hard drive then @file{/usr} itself, which is where it is pointing today.
+as they normally are much larger than other programs. It lets your store
+games on a different hard drive then programs @file{/usr} itself, which is where
+it is pointing today.
 
-If you prefer, you can separate the correctly written game scrolls should be
+If you prefer, you can separate them. Correctly written game scrolls should be
 installed into @file{/usr/games} rather than @file{/usr}; the definition of
 ``game'' may however not be to count on, it should be interactive games that you
 play, not just amusing small programs such as @command{ponysay} and @command{fortune}.
