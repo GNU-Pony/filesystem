@@ -22,11 +22,10 @@ all: doc
 
 doc: info
 
-info: filesystem.info.gz
+info: filesystem.info
 
-%.info.gz: info/%.texinfo
+%.info: info/%.texinfo
 	makeinfo "$<"
-	gzip -9 -f "$*.info"
 
 pdf: filesystem.pdf
 %.pdf: info/%.texinfo
