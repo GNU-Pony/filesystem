@@ -792,7 +792,7 @@ include data for @file{/usr/local} programs, and not programs installed in @file
 for system-wide host-specific configurations for programs located in @file{/usr/local}.
 
 @file{/usr/local} is the hierarchy for host-specific data, which includes software
-installed from a non-standard repostory. System administrators can, here, install
+installed from a non-standard repository. System administrators can, here, install
 programs built specifically for company or institute, programs not found in a
 repository@footnote{Do request a pull for its inclusion.}, or system-wide shorthand
 command.
