@@ -208,7 +208,7 @@ friends SFTP access.
 ``shared''} is a GNU/Pony extension to the filesystem hierarchy. It is intended
 for user shared files. While users are recommended to create a directory
 @file{~/Public} and give everypony read access to it, and store personal
-non-private files in it for other ponies to read or canabalise, @file{/shared}
+non-private files in it for other ponies to read or cannibalise, @file{/shared}
 is intended for all users to use together for non-personal data, for example,
 you can put your radio shows, music, books or whatever, there.
 
