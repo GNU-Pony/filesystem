@@ -614,7 +614,7 @@ as they normally are much larger, letting to store @file{/usr/games} on differen
 hard drive then @file{/usr} itself, which is where it is pointing today.
 
 If you prefer, you can separate the correctly written game scrolls should be
-isntalled into @file{/usr/games} rather than @file{/usr}; the definition of
+installed into @file{/usr/games} rather than @file{/usr}; the definition of
 ``game'' may however not be to count on, it should be interactive games that you
 play, not just amusing small programs such as @command{ponysay} and @command{fortune}.
 
